@@ -3,7 +3,7 @@
   "name": "klar-doctor-appointment",
   "posterUrl": "https://cdn.jsdelivr.net/gh/klar-templates/klar-blog/images/https-klar-templates.github.io-klar-blog- (1).png",
   "title": "Doctor Appointment Booking",
-  "websiteUrl": "https://klar-templates.github.io/klar-blog/",
+  "websiteUrl": "https://klar-templates.github.io/klar-doctor-appointment/",
   "author": "Klar",
   "category": "blog",
   "description": "Pulse is a doctor-appointment booking platform built with React and the Klar visual CMS. Patients browse verified specialists, pick a time slot, and book in seconds — with server-side double-booking prevention, automated email/SMS reminders, and a built-in admin panel."
