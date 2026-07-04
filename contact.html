@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+    <title>Nexus - Personal Blog | Fashion, Technology &amp; Lifestyle</title>
+    <meta name="description"
+      content="Explore the latest in fashion trends, technology insights, business strategies, and lifestyle inspiration on Nexus personal blog.">
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/dmsans/v17/rP2Hp2ywxg089UriCZOIHQ.woff2">
+    <link rel="stylesheet" href="/style.css">
+    <script>
+      (function() {
+        try {
+          var d = document.documentElement,
+            c = d.classList;
+          if (localStorage.getItem('theme') === 'dark') {
+            d.style.colorScheme = 'dark';
+            c.remove('light');
+            c.add('dark');
+          } else {
+            d.style.colorScheme = 'light';
+            c.remove('dark');
+            c.add('light');
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <script src="https://editor.klar.website/sdk/content-static.iife.js"></script>
+    <script type="module" src="/script.js"></script>
+  </head>
+  <body>
+    <div class="min-h-screen bg-background">
+
+      <!-- ===== Header ===== -->
+      <header class="site-header" id="header">
+        <div class="container">
+          <div class="site-header__bar">
+            <a class="brand" href="/index.html">nexus</a>
+            <nav class="nav-desktop items-center gap-8" aria-label="Main navigation"><a class="nav-link"
+                href="/posts.html">ALL POST</a>
+              <a class="nav-link" href="/business.html">BUSINESS</a>
+              <a class="nav-link" href="/technology.html">TECHNOLOGY</a>
+              <a class="nav-link" href="/podcast.html">PODCAST</a>
+            </nav>
+            <div class="nav-desktop items-center gap-2">
+              <!--
+              <a href="#" class="btn btn-icon" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                  height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                </svg></a>
+              <a href="#" class="btn btn-icon" aria-label="Twitter"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                  height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z">
+                  </path>
+                </svg></a>
+              <a href="#" class="btn btn-icon" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                  height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+                </svg></a>
+              -->
+              <a href="/search.html" class="btn btn-icon" aria-label="Search articles"><svg
+                  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <path d="m21 21-4.3-4.3"></path>
+                </svg></a>
+              <button class="btn btn-icon" aria-label="Toggle theme">
+                <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="4"></circle>
+                  <path d="M12 2v2"></path>
+                  <path d="M12 20v2"></path>
+                  <path d="m4.93 4.93 1.41 1.41"></path>
+                  <path d="m17.66 17.66 1.41 1.41"></path>
+                  <path d="M2 12h2"></path>
+                  <path d="M20 12h2"></path>
+                  <path d="m6.34 17.66-1.41 1.41"></path>
+                  <path d="m19.07 4.93-1.41 1.41"></path>
+                </svg>
+                <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+                </svg>
+              </button>
+            </div>
+            <button id="mobile-menu-toggle" class="btn btn-icon nav-mobile-toggle" aria-label="Toggle menu">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="4" x2="20" y1="12" y2="12"></line>
+                <line x1="4" x2="20" y1="6" y2="6"></line>
+                <line x1="4" x2="20" y1="18" y2="18"></line>
+              </svg>
+            </button>
+          </div>
+          <div id="mobile-menu" class="hidden border-t py-4">
+            <nav class="flex flex-col gap-4" aria-label="Mobile navigation">
+              <a class="nav-link" href="/posts.html">ALL POST</a>
+              <a class="nav-link" href="/business.html">BUSINESS</a>
+              <a class="nav-link" href="/technology.html">TECHNOLOGY</a>
+              <a class="nav-link" href="/podcast.html">PODCAST</a>
+            </nav>
+          </div>
+        </div>
+      </header>
+
+      <!-- ===== Main ===== -->
+      <main id="main-content" class="container py-12">
+        <div class="max-w-4xl mx-auto">
+
+          <div class="text-center mb-12">
+            <h1 class="page-title md:text-5xl mb-4">Get in Touch</h1>
+            <p class="lead max-w-2xl mx-auto">Have a question, suggestion, or just want to say hello? We'd love to hear
+              from you.</p>
+          </div>
+
+          <div class="grid lg:grid-cols-2 gap-12">
+
+            <!-- Contact form -->
+            <div class="card">
+              <div class="card__header">
+                <h3 class="card__title">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                  </svg>
+                  Send us a Message
+                </h3>
+                <p class="card__description">Fill out the form below and we'll get back to you as soon as possible.</p>
+              </div>
+              <div class="card__body">
+                <form class="flex flex-col gap-6">
+                  <div class="field">
+                    <label class="label" for="name">Name</label>
+                    <input class="input" id="name" name="name" type="text" placeholder="Your full name" required="">
+                  </div>
+                  <div class="field">
+                    <label class="label" for="email">Email</label>
+                    <input class="input" id="email" name="email" type="email" placeholder="your.email@example.com"
+                      required="">
+                  </div>
+                  <div class="field">
+                    <label class="label" for="subject">Subject</label>
+                    <input class="input" id="subject" name="subject" type="text" placeholder="What's this about?"
+                      required="">
+                  </div>
+                  <div class="field">
+                    <label class="label" for="message">Message</label>
+                    <textarea class="textarea" id="message" name="message" rows="6"
+                      placeholder="Tell us more about your inquiry..." required=""></textarea>
+                  </div>
+                  <button class="btn btn-primary btn-block" type="submit">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path
+                        d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z">
+                      </path>
+                      <path d="m21.854 2.147-10.94 10.939"></path>
+                    </svg>
+                    Send Message
+                  </button>
+                </form>
+              </div>
+            </div>
+
+            <!-- Contact info -->
+            <div class="flex flex-col gap-8">
+              <div class="card">
+                <div class="card__header">
+                  <h3 class="card__title">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                    </svg>
+                    Contact Information
+                  </h3>
+                  <p class="card__description">Other ways to reach us</p>
+                </div>
+                <div class="card__body flex flex-col gap-6">
+                  <div class="flex items-start gap-4">
+                    <div class="p-2 bg-muted rounded-lg">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 class="font-medium text-foreground">Email</h3>
+                      <p class="text-muted-foreground">hello@nexusblog.com</p>
+                      <p class="text-sm text-muted-foreground">We typically respond within 24 hours</p>
+                    </div>
+                  </div>
+                  <div class="flex items-start gap-4">
+                    <div class="p-2 bg-muted rounded-lg">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                          d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0">
+                        </path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 class="font-medium text-foreground">Location</h3>
+                      <p class="text-muted-foreground">Global</p>
+                      <p class="text-sm text-muted-foreground">We're a distributed team working worldwide</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="card__header">
+                  <h3 class="card__title">Frequently Asked Questions</h3>
+                </div>
+                <div class="card__body flex flex-col gap-4">
+                  <div>
+                    <h4 class="font-medium text-foreground mb-2">Can I contribute to the blog?</h4>
+                    <p class="text-sm text-muted-foreground">We welcome guest contributors! Please reach out with your
+                      ideas and writing samples.</p>
+                  </div>
+                  <div>
+                    <h4 class="font-medium text-foreground mb-2">How often do you publish new content?</h4>
+                    <p class="text-sm text-muted-foreground">We publish new articles several times a week across all our
+                      categories.</p>
+                  </div>
+                  <div>
+                    <h4 class="font-medium text-foreground mb-2">Do you offer partnerships or collaborations?</h4>
+                    <p class="text-sm text-muted-foreground">Yes! We're open to partnerships with brands and creators
+                      that align with our values.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </main>
+
+      <!-- ===== Footer ===== -->
+      <footer class="site-footer" role="contentinfo">
+        <div class="container py-12">
+          <div class="grid md:grid-cols-4 gap-8">
+            <div class="flex flex-col gap-4">
+              <h2 class="text-lg font-bold text-foreground">nexus</h2>
+              <p class="text-sm text-muted-foreground">A personal blog exploring fashion, technology, business, and
+                lifestyle trends.</p>
+            </div>
+            <div class="flex flex-col gap-4">
+              <h3 class="font-medium text-foreground">Categories</h3>
+              <ul class="flex flex-col gap-2 text-sm">
+                <li><a class="footer-link" href="/posts.html">Fashion</a></li>
+                <li><a class="footer-link" href="/technology.html">Technology</a></li>
+                <li><a class="footer-link" href="/business.html">Business</a></li>
+                <li><a class="footer-link" href="/posts.html">Lifestyle</a></li>
+              </ul>
+            </div>
+            <div class="flex flex-col gap-4">
+              <h3 class="font-medium text-foreground">Quick Links</h3>
+              <ul class="flex flex-col gap-2 text-sm">
+                <li><a class="footer-link" href="/about.html">About</a></li>
+                <li><a class="footer-link" href="/contact.html">Contact</a></li>
+                <li><a class="footer-link" href="/privacy.html">Privacy</a></li>
+                <li><a class="footer-link" href="/terms.html">Terms</a></li>
+              </ul>
+            </div>
+            <div class="flex flex-col gap-4">
+              <h3 class="font-medium text-foreground">Connect</h3>
+              <div class="flex gap-4">
+                <a class="footer-link" href="#" aria-label="Follow us on Facebook">Facebook</a>
+                <a class="footer-link" href="#" aria-label="Follow us on Twitter">Twitter</a>
+                <a class="footer-link" href="#" aria-label="Follow us on Instagram">Instagram</a>
+              </div>
+            </div>
+          </div>
+          <div class="border-t mt-8 pt-8 text-center">
+            <p class="text-sm text-muted-foreground">© 2026 Nexus Blog. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+  </body>
+</html>

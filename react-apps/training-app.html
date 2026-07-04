@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+    <title>Nexus - Personal Blog | Fashion, Technology &amp; Lifestyle</title>
+    <meta name="description"
+      content="Explore the latest in fashion trends, technology insights, business strategies, and lifestyle inspiration on Nexus personal blog.">
+    <link rel="stylesheet" href="/style.css">
+    <script src="/klar-project.js"></script>
+    <script>
+      (function() {
+        try {
+          var d = document.documentElement,
+            c = d.classList;
+          if (localStorage.getItem("theme") === "dark") {
+            d.style.colorScheme = "dark";
+            c.remove("light");
+            c.add("dark");
+          } else {
+            d.style.colorScheme = "light";
+            c.remove("dark");
+            c.add("light");
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <script src="https://editor.klar.website/sdk/content-static.iife.js"></script>
+    <script type="module" src="/script.js"></script>
+    <script crossorigin="" src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin="" src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script data-klar-config="">
+      const config = {
+        pageTypes: [{
+          name: "blog-post",
+          editableElements: `.field-title        :field(title: Title, name: title, type:string, order:1, section: Content, sectionOrder:1),
+.field-image     	:field(title: Image, name: image, type:image, order:2, col: 6, section:'Content'),
+.field-category  	:field(title: Category, name: category, type:string, col:6, section:Meta, sectionOrder:2, options(vocab:categories)),
+.field-author    	:field(title: Author, name: author, type:string, options(vocab:authors), col:6, section:'Meta', sectionOrder:2),
+.field-createdAt 	:field(title: Created, name: createdAt, type:string, format:date, options(dateFormat:'MMMM D, YYYY', dbField: createdAt)),
+.field-initial      :field(title: Initial, name: initial, type:string, order:5, col:6),
+.field-readTime  	:field(title: Read time, name: readTime, type:string, order: 5, col: 6),
+.field-list         :field(title: List, name: list, type:array, options(layout:list)),
+.field-text      	:field(title: Content, name: text, type:array, options(layout:blocks)),
+                 	:field(title: Lead, name: lead, type:text, default: 'Blog post excerpt — Brief description of the article content for preview.', order:3, section:'Content', col: 6, options(layout:editor))`,
+        }],
+        pages: [{
+            name: "blog/blog-post-1.html",
+            content: {
+              categories: ["Technology", "Podcast", "Lifestyle"],
+              tags: ["Leadership", "Authenticity"],
+            }
+          },
+          {
+            name: "blog/blog-post-2.html",
+            content: {
+              categories: ["Technology", "Business", "Lifestyle"],
+              tags: ["Leadership"],
+            }
+          },
+          {
+            name: "blog/blog-post-3.html",
+            content: {
+              categories: ["Technology", "Lifestyle"],
+              tags: ["Authenticity"],
+            }
+          },
+          {
+            name: "blog/blog-post-4.html",
+            content: {
+              categories: ["Technology", "Podcast", "Business", "Lifestyle"],
+              topics: ["Digital Marketing", "Personal Branding"],
+              tags: ["Personal Branding"],
+            }
+          },
+          {
+            name: "blog/blog-post-5.html",
+            content: {
+              categories: ["Business", "Lifestyle"],
+              tags: ["Leadership", "Authenticity"],
+            }
+          },
+          {
+            name: "blog/blog-post-6.html",
+            content: {
+              categories: ["Technology"],
+              topics: ["Personal Branding", "Digital Marketing"],
+              tags: ["Leadership", "Authenticity"],
+            }
+          },
+        ],
+        vocabularies: {
+          categories: ["Technology", "Podcast", "Lifestyle"],
+          topics: ["Digital Marketing", "Personal Branding"],
+          tags: ["Leadership", "Authenticity"],
+          authors: ["Lisa Eriksson", "Klar Karlsson", "Niklas Svensson"],
+        }
+      };
+    </script>
+  </head>
+  <body>
+    <header class="site-header" id="header">
+      <div class="container">
+        <div class="site-header__bar">
+          <a class="brand" href="/index.html">nexus</a>
+          <nav class="nav-desktop items-center gap-8" aria-label="Main navigation"><a class="nav-link"
+              href="/posts.html">ALL POST</a>
+            <a class="nav-link" href="/business.html">BUSINESS</a>
+            <a class="nav-link" href="/technology.html">TECHNOLOGY</a>
+            <a class="nav-link" href="/podcast.html">PODCAST</a>
+          </nav>
+          <div class="nav-desktop items-center gap-2">
+            <!--
+              <a href="#" class="btn btn-icon" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                  height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                </svg></a>
+              <a href="#" class="btn btn-icon" aria-label="Twitter"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                  height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z">
+                  </path>
+                </svg></a>
+              <a href="#" class="btn btn-icon" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                  height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+                </svg></a>
+              -->
+            <a href="/search.html" class="btn btn-icon" aria-label="Search articles"><svg
+                xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.3-4.3"></path>
+              </svg></a>
+            <button class="btn btn-icon" aria-label="Toggle theme">
+              <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="4"></circle>
+                <path d="M12 2v2"></path>
+                <path d="M12 20v2"></path>
+                <path d="m4.93 4.93 1.41 1.41"></path>
+                <path d="m17.66 17.66 1.41 1.41"></path>
+                <path d="M2 12h2"></path>
+                <path d="M20 12h2"></path>
+                <path d="m6.34 17.66-1.41 1.41"></path>
+                <path d="m19.07 4.93-1.41 1.41"></path>
+              </svg>
+              <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+              </svg>
+            </button>
+          </div>
+          <button id="mobile-menu-toggle" class="btn btn-icon nav-mobile-toggle" aria-label="Toggle menu">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="4" x2="20" y1="12" y2="12"></line>
+              <line x1="4" x2="20" y1="6" y2="6"></line>
+              <line x1="4" x2="20" y1="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+        <div id="mobile-menu" class="hidden border-t py-4">
+          <nav class="flex flex-col gap-4" aria-label="Mobile navigation">
+            <a class="nav-link" href="/posts.html">ALL POST</a>
+            <a class="nav-link" href="/business.html">BUSINESS</a>
+            <a class="nav-link" href="/technology.html">TECHNOLOGY</a>
+            <a class="nav-link" href="/podcast.html">PODCAST</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <main style="min-height: calc(100vh - 81px);">
+      <div id="nexus-training-day-plan-root"></div>
+      <script>
+        (function() {
+          var e = React.createElement;
+          var storageKey = "nexus-training-day-plan-v2";
+          var authDataName = "training-app";
+          var authProjectId = window.__KLAR_PROJECT_ID__;
+          var authClient = null;
+          var authClientPromise = null;
+
+          function getAuthClient() {
+            if (authClient) return Promise.resolve(authClient);
+            if (!authClientPromise) {
+              authClientPromise = import("http://localhost:5173/sdk/users.js").then(function(module) {
+                authClient = module.createKlarUser({
+                  projectId: authProjectId
+                });
+                return authClient;
+              });
+            }
+            return authClientPromise;
+          }
+
+          function loadAuthPlan(client) {
+            return client.data.get(authDataName).then(function(value) {
+              if (value && typeof value === "object" && value.plan && typeof value.plan === "object") {
+                return value.plan;
+              }
+              return value && typeof value === "object" ? value : null;
+            });
+          }
+
+          function saveAuthPlan(client, plan) {
+            return client.data.set(authDataName, {
+              plan: plan,
+              updatedAt: new Date().toISOString()
+            });
+          }
+
+          var days = [{
+              key: "mon",
+              label: "Måndag"
+            },
+            {
+              key: "tue",
+              label: "Tisdag"
+            },
+            {
+              key: "wed",
+              label: "Onsdag"
+            },
+            {
+              key: "thu",
+              label: "Torsdag"
+            },
+            {
+              key: "fri",
+              label: "Fredag"
+            },
+            {
+              key: "sat",
+              label: "Lördag"
+            },
+            {
+              key: "sun",
+              label: "Söndag"
+            }
+          ];
+
+          var defaultPlan = {
+            "mon": [{
+              "id": "mon-1",
+              "name": "Triceps",
+              "done": false
+            }, {
+              "id": "mon-2",
+              "name": "Armhävningar",
+              "done": false
+            }],
+            "tue": [{
+              "id": "tue-1",
+              "name": "Benböj",
+              "done": false
+            }, {
+              "id": "tue-2",
+              "name": "Plankan",
+              "done": false
+            }],
+            "wed": [{
+              "id": "wed-1",
+              "name": "Promenad",
+              "done": false
+            }, {
+              "id": "wed-1780501754125",
+              "name": "Kreatin",
+              "done": false
+            }],
+            "thu": [{
+              "id": "thu-1",
+              "name": "Rygglyft",
+              "done": false
+            }, {
+              "id": "thu-2",
+              "name": "Biceps",
+              "done": false
+            }],
+            "fri": [{
+              "id": "fri-1",
+              "name": "Löpning",
+              "done": false
+            }],
+            "sat": [{
+              "id": "sat-1",
+              "name": "Rörlighet",
+              "done": false
+            }],
+            "sun": [{
+              "id": "sun-1",
+              "name": "Vila eller lätt promenad",
+              "done": false
+            }]
+          };
+
+          function cloneDefaultPlan() {
+            return JSON.parse(JSON.stringify(defaultPlan));
+          }
+
+          function getTodayKey() {
+            var dayIndex = new Date().getDay();
+            var map = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
+            return map[dayIndex] || "mon";
+          }
+
+          function normalizePlan(plan) {
+            var next = plan && typeof plan === "object" ? plan : cloneDefaultPlan();
+            days.forEach(function(day) {
+              if (!Array.isArray(next[day.key])) next[day.key] = [];
+            });
+            return next;
+          }
+
+          function loadPlan() {
+            try {
+              var saved = JSON.parse(localStorage.getItem(storageKey) || "null");
+              if (saved && typeof saved === "object") return normalizePlan(saved);
+            } catch (error) {}
+            return cloneDefaultPlan();
+          }
+
+          function TrainingDayPlanApp() {
+            var todayKey = getTodayKey();
+            var initialPlan = React.useMemo(loadPlan, []);
+            var planState = React.useState(initialPlan);
+            var plan = planState[0];
+            var setPlan = planState[1];
+
+            var remoteLoadedRef = React.useRef(false);
+            var remoteSaveTimerRef = React.useRef(null);
+
+            var viewState = React.useState("today");
+            var currentView = viewState[0];
+            var setCurrentView = viewState[1];
+
+            var formDayState = React.useState(todayKey);
+            var formDay = formDayState[0];
+            var setFormDay = formDayState[1];
+
+            var exerciseState = React.useState("");
+            var exerciseName = exerciseState[0];
+            var setExerciseName = exerciseState[1];
+
+            var authState = React.useState(null);
+            var auth = authState[0];
+            var setAuth = authState[1];
+
+            var userState = React.useState(null);
+            var user = userState[0];
+            var setUser = userState[1];
+
+            var authStatusState = React.useState("loading");
+            var authStatus = authStatusState[0];
+            var setAuthStatus = authStatusState[1];
+
+            var canEdit = !!user;
+
+            React.useEffect(function() {
+              var active = true;
+              var unsubscribe;
+
+              getAuthClient().then(function(client) {
+                if (!active) return;
+                setAuth(client);
+                setUser(client.getUser());
+                setAuthStatus("ready");
+                unsubscribe = client.onChange(function(nextUser) {
+                  if (active) setUser(nextUser);
+                });
+              }).catch(function(error) {
+                console.warn(error);
+                if (active) setAuthStatus("error");
+              });
+
+              return function() {
+                active = false;
+                if (typeof unsubscribe === "function") unsubscribe();
+              };
+            }, []);
+
+            React.useEffect(function() {
+              if (!auth || !user) {
+                remoteLoadedRef.current = false;
+                return;
+              }
+
+              var active = true;
+              remoteLoadedRef.current = false;
+
+              loadAuthPlan(auth).then(function(remotePlan) {
+                if (!active) return;
+                if (remotePlan && typeof remotePlan === "object") {
+                  setPlan(normalizePlan(remotePlan));
+                }
+              }).catch(console.warn).finally(function() {
+                if (active) remoteLoadedRef.current = true;
+              });
+
+              return function() {
+                active = false;
+              };
+            }, [auth, user]);
+
+            React.useEffect(function() {
+              try {
+                localStorage.setItem(storageKey, JSON.stringify(plan));
+              } catch (error) {}
+            }, [plan]);
+
+            React.useEffect(function() {
+              if (!auth || !user || !remoteLoadedRef.current) return;
+
+              if (remoteSaveTimerRef.current) clearTimeout(remoteSaveTimerRef.current);
+              remoteSaveTimerRef.current = setTimeout(function() {
+                saveAuthPlan(auth, plan).catch(console.warn);
+              }, 300);
+
+              return function() {
+                if (remoteSaveTimerRef.current) clearTimeout(remoteSaveTimerRef.current);
+              };
+            }, [plan, auth, user]);
+
+            function handleSignIn() {
+              if (!auth) return;
+              setAuthStatus("loading");
+              auth.signIn().catch(console.warn).finally(function() {
+                setAuthStatus("ready");
+              });
+            }
+
+            function handleSignOut() {
+              if (!auth) return;
+              var result = auth.signOut();
+              if (result && typeof result.catch === "function") result.catch(console.warn);
+            }
+
+            function visibleDays() {
+              if (currentView === "today") {
+                return days.filter(function(day) {
+                  return day.key === todayKey;
+                });
+              }
+
+              return days;
+            }
+
+            function statsDays() {
+              return currentView === "today" ? visibleDays() : days;
+            }
+
+            function getStats() {
+              var total = 0;
+              var completed = 0;
+
+              statsDays().forEach(function(day) {
+                (plan[day.key] || []).forEach(function(exercise) {
+                  total += 1;
+                  if (exercise.done) completed += 1;
+                });
+              });
+
+              return {
+                total: total,
+                completed: completed,
+                percent: total ? Math.round((completed / total) * 100) : 0
+              };
+            }
+
+            function handleSubmit(event) {
+              event.preventDefault();
+
+              if (!canEdit) return;
+
+              var name = exerciseName.trim();
+              if (!name) return;
+
+              setPlan(function(currentPlan) {
+                var next = Object.assign({}, currentPlan);
+                next[formDay] = (next[formDay] || []).concat([{
+                  id: formDay + "-" + Date.now(),
+                  name: name,
+                  done: false
+                }]);
+                return next;
+              });
+
+              setExerciseName("");
+
+              if (formDay !== todayKey && currentView === "today") {
+                setCurrentView("week");
+              }
+            }
+
+            function clearPlan() {
+              if (!canEdit) return;
+
+              setPlan(function(currentPlan) {
+                var next = {};
+                days.forEach(function(day) {
+                  next[day.key] = (currentPlan[day.key] || []).map(function(exercise) {
+                    return Object.assign({}, exercise, {
+                      done: false
+                    });
+                  });
+                });
+                return next;
+              });
+            }
+
+            function toggleExercise(dayKey, exerciseId) {
+              if (!canEdit) return;
+
+              setPlan(function(currentPlan) {
+                var next = Object.assign({}, currentPlan);
+                next[dayKey] = (next[dayKey] || []).map(function(exercise) {
+                  if (exercise.id !== exerciseId) return exercise;
+                  return Object.assign({}, exercise, {
+                    done: !exercise.done
+                  });
+                });
+                return next;
+              });
+            }
+
+            function removeExercise(dayKey, exerciseId) {
+              if (!canEdit) return;
+
+              setPlan(function(currentPlan) {
+                var next = Object.assign({}, currentPlan);
+                next[dayKey] = (next[dayKey] || []).filter(function(exercise) {
+                  return exercise.id !== exerciseId;
+                });
+                return next;
+              });
+            }
+
+            var today = days.filter(function(day) {
+              return day.key === todayKey;
+            })[0];
+
+            var stats = getStats();
+            var totalLabelText = currentView === "today" ? "övningar idag" : "övningar denna vecka";
+            var completedLabelText = currentView === "today" ? "avklarade idag" : "avklarade övningar";
+            var percentLabelText = currentView === "today" ? "av dagens plan" : "av veckans plan";
+            var currentViewLabelText = currentView === "today" ? "Idag" : "Vecka";
+            var currentHeadingText = currentView === "today" ? (today ? today.label + "s plan" : "Dagens plan") :
+              "Veckans plan";
+            var daysMountClassName = currentView === "today" ? "grid grid-cols-1 gap-6" :
+              "grid md:grid-cols-2 gap-6";
+            var authDescriptionText = user ? "Inloggad som " + (user.name || user.email || "användare") +
+              ". Du kan redigera träningsplanen." : authStatus === "error" ?
+              "Inloggningen kunde inte laddas. Redigering är låst." :
+              "Logga in för att lägga till, bocka av och ta bort övningar.";
+            var authButtonText = user ? "Logga ut" : authStatus === "loading" ? "Kontrollerar..." : "Logga in";
+
+            return e("section", {
+                className: "container py-16 min-h-70vh",
+                id: "nexus-training-day-plan-section"
+              },
+              e("div", {
+                  className: "max-w-6xl mx-auto"
+                },
+                e("div", {
+                    className: "text-center mb-12"
+                  },
+                  e("span", {
+                    className: "badge mb-4"
+                  }, "Träningsplanerare"),
+                  e("h2", {
+                    className: "page-title md:text-5xl mb-4"
+                  }, "Dagens övningar"),
+                  e("p", {
+                    className: "lead max-w-2xl mx-auto"
+                  }, "Planera vilka övningar som ska göras varje dag och bocka av dem när de är uppfyllda.")
+                ),
+
+                e("div", {
+                    className: "flex justify-center gap-3 mb-8",
+                    "aria-label": "Välj vy"
+                  },
+                  e("button", {
+                    className: currentView === "today" ? "tag is-active" : "tag",
+                    type: "button",
+                    id: "nexus-training-day-plan-view-today",
+                    "aria-pressed": currentView === "today" ? "true" : "false",
+                    onClick: function() {
+                      setCurrentView("today");
+                    }
+                  }, "Idag"),
+                  e("button", {
+                    className: currentView === "week" ? "tag is-active" : "tag",
+                    type: "button",
+                    id: "nexus-training-day-plan-view-week",
+                    "aria-pressed": currentView === "week" ? "true" : "false",
+                    onClick: function() {
+                      setCurrentView("week");
+                    }
+                  }, "Vecka")
+                ),
+
+                e("div", {
+                    className: "grid lg:grid-cols-3 gap-8"
+                  },
+                  e("aside", {
+                      className: "card"
+                    },
+                    e("div", {
+                        className: "card__header"
+                      },
+                      e("h3", {
+                        className: "card__title"
+                      }, "Lägg till övning"),
+                      e("p", {
+                        className: "card__description"
+                      }, "Välj dag och skriv in övningen som ska uppfyllas.")
+                    ),
+                    e("div", {
+                        className: "card__body flex flex-col gap-6"
+                      },
+                      e("div", {
+                          className: "bg-muted rounded-md p-4 flex flex-col gap-3"
+                        },
+                        e("p", {
+                          className: "text-sm text-muted-foreground"
+                        }, authDescriptionText),
+                        e("button", {
+                          className: user ? "btn btn-outline btn-sm" : "btn btn-primary btn-sm",
+                          type: "button",
+                          id: "nexus-training-day-plan-auth",
+                          disabled: authStatus === "loading" || !auth,
+                          onClick: user ? handleSignOut : handleSignIn
+                        }, authButtonText)
+                      ),
+                      e("form", {
+                          className: "flex flex-col gap-6",
+                          id: "nexus-training-day-plan-form",
+                          onSubmit: handleSubmit
+                        },
+                        e("div", {
+                            className: "field"
+                          },
+                          e("label", {
+                            className: "label",
+                            htmlFor: "nexus-training-day-plan-day"
+                          }, "Dag"),
+                          e("select", {
+                              className: "select",
+                              id: "nexus-training-day-plan-day",
+                              name: "day",
+                              value: formDay,
+                              disabled: !canEdit,
+                              onChange: function(event) {
+                                setFormDay(event.target.value);
+                              }
+                            },
+                            e("option", {
+                              value: "mon"
+                            }, "Måndag"),
+                            e("option", {
+                              value: "tue"
+                            }, "Tisdag"),
+                            e("option", {
+                              value: "wed"
+                            }, "Onsdag"),
+                            e("option", {
+                              value: "thu"
+                            }, "Torsdag"),
+                            e("option", {
+                              value: "fri"
+                            }, "Fredag"),
+                            e("option", {
+                              value: "sat"
+                            }, "Lördag"),
+                            e("option", {
+                              value: "sun"
+                            }, "Söndag")
+                          )
+                        ),
+
+                        e("div", {
+                            className: "field"
+                          },
+                          e("label", {
+                            className: "label",
+                            htmlFor: "nexus-training-day-plan-exercise"
+                          }, "Övning"),
+                          e("input", {
+                            className: "input",
+                            id: "nexus-training-day-plan-exercise",
+                            name: "exercise",
+                            type: "text",
+                            placeholder: "Ex. Triceps, Armhävningar",
+                            value: exerciseName,
+                            disabled: !canEdit,
+                            onChange: function(event) {
+                              setExerciseName(event.target.value);
+                            }
+                          })
+                        ),
+
+                        e("button", {
+                          className: "btn btn-primary btn-block",
+                          type: "submit",
+                          disabled: !canEdit
+                        }, "Lägg till")
+                      )
+                    )
+                  ),
+
+                  e("div", {
+                      className: "lg:col-span-2 flex flex-col gap-8"
+                    },
+                    e("div", {
+                        className: "grid md:grid-cols-3 gap-4"
+                      },
+                      e("div", {
+                          className: "card bg-muted"
+                        },
+                        e("div", {
+                            className: "card__body pt-6"
+                          },
+                          e("p", {
+                            className: "blog-meta mb-2"
+                          }, "Planerade"),
+                          e("p", {
+                            className: "text-3xl font-bold",
+                            id: "nexus-training-day-plan-total"
+                          }, String(stats.total)),
+                          e("p", {
+                            className: "text-sm text-muted-foreground mt-2",
+                            id: "nexus-training-day-plan-total-label"
+                          }, totalLabelText)
+                        )
+                      ),
+
+                      e("div", {
+                          className: "card bg-muted"
+                        },
+                        e("div", {
+                            className: "card__body pt-6"
+                          },
+                          e("p", {
+                            className: "blog-meta mb-2"
+                          }, "Uppfyllda"),
+                          e("p", {
+                            className: "text-3xl font-bold",
+                            id: "nexus-training-day-plan-completed"
+                          }, String(stats.completed)),
+                          e("p", {
+                            className: "text-sm text-muted-foreground mt-2",
+                            id: "nexus-training-day-plan-completed-label"
+                          }, completedLabelText)
+                        )
+                      ),
+
+                      e("div", {
+                          className: "card bg-muted"
+                        },
+                        e("div", {
+                            className: "card__body pt-6"
+                          },
+                          e("p", {
+                            className: "blog-meta mb-2"
+                          }, "Progress"),
+                          e("p", {
+                            className: "text-3xl font-bold",
+                            id: "nexus-training-day-plan-percent"
+                          }, stats.percent + "%"),
+                          e("p", {
+                            className: "text-sm text-muted-foreground mt-2",
+                            id: "nexus-training-day-plan-percent-label"
+                          }, percentLabelText)
+                        )
+                      )
+                    ),
+
+                    e("div", null,
+                      e("div", {
+                          className: "flex items-center justify-between gap-4 mb-6"
+                        },
+                        e("div", null,
+                          e("p", {
+                            className: "blog-meta",
+                            id: "nexus-training-day-plan-current-view-label"
+                          }, currentViewLabelText),
+                          e("h3", {
+                            className: "section-title mt-2",
+                            id: "nexus-training-day-plan-current-heading"
+                          }, currentHeadingText)
+                        ),
+                        e("button", {
+                          className: "btn btn-outline btn-sm",
+                          type: "button",
+                          id: "nexus-training-day-plan-clear",
+                          disabled: !canEdit,
+                          onClick: clearPlan
+                        }, "Rensa avbockningar")
+                      ),
+
+                      e("div", {
+                          className: daysMountClassName,
+                          id: "nexus-training-day-plan-days",
+                          "aria-live": "polite"
+                        },
+                        visibleDays().map(function(day) {
+                          var exercises = plan[day.key] || [];
+
+                          return e("article", {
+                              className: "card",
+                              key: day.key
+                            },
+                            e("div", {
+                                className: "card__header"
+                              },
+                              e("h3", {
+                                className: "card__title"
+                              }, day.label),
+                              e("p", {
+                                  className: "card__description"
+                                }, exercises.length ? exercises.length + " planerade övningar" :
+                                "Inga övningar planerade")
+                            ),
+                            e("div", {
+                                className: "card__body"
+                              },
+                              exercises.length ? e("ul", {
+                                  className: "flex flex-col gap-3"
+                                },
+                                exercises.map(function(exercise) {
+                                  return e("li", {
+                                      className: "flex items-center justify-between gap-3",
+                                      key: exercise.id
+                                    },
+                                    e("div", {
+                                        className: "flex items-center gap-3"
+                                      },
+                                      e("span", {
+                                        className: "dot",
+                                        "aria-hidden": "true"
+                                      }),
+                                      e("span", {
+                                        className: exercise.done ? "text-muted-foreground" :
+                                          "text-foreground"
+                                      }, exercise.name)
+                                    ),
+                                    e("div", {
+                                        className: "flex gap-2"
+                                      },
+                                      e("button", {
+                                        type: "button",
+                                        className: exercise.done ? "btn btn-primary btn-sm" :
+                                          "btn btn-sm",
+                                        disabled: !canEdit,
+                                        "aria-pressed": exercise.done ? "true" : "false",
+                                        onClick: function() {
+                                          toggleExercise(day.key, exercise.id);
+                                        }
+                                      }, exercise.done ? "Klar" : "Bocka av"),
+                                      e("button", {
+                                        type: "button",
+                                        className: "btn btn-ghost btn-sm",
+                                        disabled: !canEdit,
+                                        "aria-label": "Ta bort " + exercise.name + " från " + day.label,
+                                        onClick: function() {
+                                          removeExercise(day.key, exercise.id);
+                                        }
+                                      }, "Ta bort")
+                                    )
+                                  );
+                                })
+                              ) : e("p", {
+                                className: "text-sm text-muted-foreground"
+                              }, "Lägg till en övning för " + day.label.toLowerCase() + ".")
+                            )
+                          );
+                        })
+                      )
+                    )
+                  )
+                )
+              )
+            );
+          }
+
+          var root = document.getElementById("nexus-training-day-plan-root");
+          if (root && window.React && window.ReactDOM) {
+            ReactDOM.createRoot(root).render(e(TrainingDayPlanApp));
+          }
+        })();
+      </script>
+    </main>
+    <footer class="site-footer" role="contentinfo">
+      <div class="container py-12">
+        <div class="grid md:grid-cols-4 gap-8">
+          <div class="flex flex-col gap-4">
+            <h2 class="text-lg font-bold text-foreground">nexus</h2>
+            <p class="text-sm text-muted-foreground">
+              A personal blog exploring fashion, technology, business, and
+              lifestyle trends.
+            </p>
+          </div>
+          <div class="flex flex-col gap-4">
+            <h3 class="font-medium text-foreground">Categories</h3>
+            <ul class="flex flex-col gap-2 text-sm">
+              <li><a class="footer-link" href="/posts.html">Fashion 1</a></li>
+              <li>
+                <a class="footer-link" href="/technology.html">Technology</a>
+              </li>
+              <li>
+                <a class="footer-link" href="/business.html">Business</a>
+              </li>
+              <li><a class="footer-link" href="/posts.html">Lifestyle</a></li>
+            </ul>
+          </div>
+          <div class="flex flex-col gap-4">
+            <h3 class="font-medium text-foreground">Quick Links</h3>
+            <ul class="flex flex-col gap-2 text-sm">
+              <li><a class="footer-link" href="/about.html">About</a></li>
+              <li><a class="footer-link" href="/contact.html">Contact</a></li>
+              <li><a class="footer-link" href="/privacy.html">Privacy</a></li>
+              <li><a class="footer-link" href="/terms.html">Terms</a></li>
+            </ul>
+          </div>
+          <div class="flex flex-col gap-4">
+            <h3 class="font-medium text-foreground">Connect</h3>
+            <div class="flex gap-4">
+              <a class="footer-link" href="#" aria-label="Follow us on Facebook">Facebook</a>
+              <a class="footer-link" href="#" aria-label="Follow us on Twitter">Twitter</a>
+              <a class="footer-link" href="#" aria-label="Follow us on Instagram">Instagram</a>
+            </div>
+          </div>
+        </div>
+        <div class="border-t mt-8 pt-8 text-center">
+          <p class="text-sm text-muted-foreground">
+            © 2026 Nexus Blog. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+  </body>
+</html>

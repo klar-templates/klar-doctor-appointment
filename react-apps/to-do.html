@@ -1,0 +1,635 @@
+<!DOCTYPE html><html lang="en" class="light"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+    <title>En ny sida</title>
+    <meta name="description" content="En beskrivning">
+    <meta name="robots" content="index,follow">
+    <link rel="stylesheet" href="/style.css">
+    <script>
+      (function() {
+        try {
+          var d = document.documentElement,
+            c = d.classList;
+          if (localStorage.getItem("theme") === "dark") {
+            d.style.colorScheme = "dark";
+            c.remove("light");
+            c.add("dark");
+          } else {
+            d.style.colorScheme = "light";
+            c.remove("dark");
+            c.add("light");
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <script type="module" src="/script.js"></script>
+  </head>
+  <body>
+    <!-- ===== Header ===== -->
+    <header class="site-header" id="header">
+        <div class="container">
+          <div class="site-header__bar">
+            <a class="brand" href="/index.html">nexus</a>
+            <nav class="nav-desktop items-center gap-8" aria-label="Main navigation"><a class="nav-link" href="/posts.html">ALL POST</a>
+              <a class="nav-link" href="/business.html">BUSINESS</a>
+              <a class="nav-link" href="/technology.html">TECHNOLOGY</a>
+              <a class="nav-link" href="/podcast.html">PODCAST</a>
+            </nav>
+            <div class="nav-desktop items-center gap-2">
+              <!--
+              <a href="#" class="btn btn-icon" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                  height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                </svg></a>
+              <a href="#" class="btn btn-icon" aria-label="Twitter"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                  height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z">
+                  </path>
+                </svg></a>
+              <a href="#" class="btn btn-icon" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                  height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+                </svg></a>
+              -->
+              <a href="/search.html" class="btn btn-icon" aria-label="Search articles"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <path d="m21 21-4.3-4.3"></path>
+                </svg></a>
+              <button class="btn btn-icon" aria-label="Toggle theme">
+                <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="4"></circle>
+                  <path d="M12 2v2"></path>
+                  <path d="M12 20v2"></path>
+                  <path d="m4.93 4.93 1.41 1.41"></path>
+                  <path d="m17.66 17.66 1.41 1.41"></path>
+                  <path d="M2 12h2"></path>
+                  <path d="M20 12h2"></path>
+                  <path d="m6.34 17.66-1.41 1.41"></path>
+                  <path d="m19.07 4.93-1.41 1.41"></path>
+                </svg>
+                <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+                </svg>
+              </button>
+            </div>
+            <button id="mobile-menu-toggle" class="btn btn-icon nav-mobile-toggle" aria-label="Toggle menu">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="4" x2="20" y1="12" y2="12"></line>
+                <line x1="4" x2="20" y1="6" y2="6"></line>
+                <line x1="4" x2="20" y1="18" y2="18"></line>
+              </svg>
+            </button>
+          </div>
+          <div id="mobile-menu" class="hidden border-t py-4">
+            <nav class="flex flex-col gap-4" aria-label="Mobile navigation">
+              <a class="nav-link" href="/posts.html">ALL POST</a>
+              <a class="nav-link" href="/business.html">BUSINESS</a>
+              <a class="nav-link" href="/technology.html">TECHNOLOGY</a>
+              <a class="nav-link" href="/podcast.html">PODCAST</a>
+            </nav>
+          </div>
+        </div>
+      </header>
+    <section class="container py-16" style="min-height: calc(100vh - 81px);" aria-label="Interactive todo list application">
+      <div id="nexus-todo-react-root"></div>
+      <script type="module">
+        import React, {
+          useEffect,
+          useMemo,
+          useState
+        } from "https://esm.sh/react@18.2.0";
+        import {
+          createRoot
+        } from "https://esm.sh/react-dom@18.2.0/client";
+
+        const nexusTodoStorageKey = "nexus-todo-react-items-v1";
+
+        const nexusTodoSortOptions = [{
+            value: "original",
+            label: "Original order"
+          },
+          {
+            value: "open",
+            label: "Open first"
+          },
+          {
+            value: "completed",
+            label: "Completed first"
+          },
+          {
+            value: "az",
+            label: "A–Z"
+          },
+          {
+            value: "za",
+            label: "Z–A"
+          }
+        ];
+
+        function NexusTodoApp() {
+          const [items, setItems] = useState(function() {
+            try {
+              const saved = window.localStorage.getItem(nexusTodoStorageKey);
+              if (saved) return JSON.parse(saved);
+            } catch (error) {}
+            return [{
+                id: "nexus-todo-1",
+                text: "Plan this week’s priorities",
+                done: false
+              },
+              {
+                id: "nexus-todo-2",
+                text: "Draft the next blog outline",
+                done: true
+              },
+              {
+                id: "nexus-todo-3",
+                text: "Review design inspiration",
+                done: false
+              }
+            ];
+          });
+          const [text, setText] = useState("");
+          const [filter, setFilter] = useState("all");
+          const [sort, setSort] = useState("original");
+          const [sortOpen, setSortOpen] = useState(false);
+
+          useEffect(function() {
+            try {
+              window.localStorage.setItem(nexusTodoStorageKey, JSON.stringify(items));
+            } catch (error) {}
+          }, [items]);
+
+          const activeCount = items.filter(function(item) {
+            return !item.done;
+          }).length;
+          const completedCount = items.length - activeCount;
+
+          const sortLabel = nexusTodoSortOptions.find(function(option) {
+            return option.value === sort;
+          }).label;
+
+          const visibleItems = useMemo(function() {
+            let filteredItems;
+            if (filter === "active") {
+              filteredItems = items.filter(function(item) {
+                return !item.done;
+              });
+            } else if (filter === "completed") {
+              filteredItems = items.filter(function(item) {
+                return item.done;
+              });
+            } else {
+              filteredItems = items;
+            }
+
+            return filteredItems
+              .map(function(item, index) {
+                return {
+                  item: item,
+                  index: index
+                };
+              })
+              .sort(function(a, b) {
+                if (sort === "open") {
+                  if (a.item.done !== b.item.done) return a.item.done ? 1 : -1;
+                  return a.index - b.index;
+                }
+
+                if (sort === "completed") {
+                  if (a.item.done !== b.item.done) return a.item.done ? -1 : 1;
+                  return a.index - b.index;
+                }
+
+                if (sort === "az") {
+                  return a.item.text.localeCompare(b.item.text);
+                }
+
+                if (sort === "za") {
+                  return b.item.text.localeCompare(a.item.text);
+                }
+
+                return a.index - b.index;
+              })
+              .map(function(entry) {
+                return entry.item;
+              });
+          }, [items, filter, sort]);
+
+          function addItem(event) {
+            event.preventDefault();
+            const clean = text.trim();
+            if (!clean) return;
+            setItems(function(current) {
+              return [{
+                id: "nexus-todo-" + Date.now().toString(),
+                text: clean,
+                done: false
+              }].concat(current);
+            });
+            setText("");
+          }
+
+          function toggleItem(id) {
+            setItems(function(current) {
+              return current.map(function(item) {
+                return item.id === id ? Object.assign({}, item, {
+                  done: !item.done
+                }) : item;
+              });
+            });
+          }
+
+          function removeItem(id) {
+            setItems(function(current) {
+              return current.filter(function(item) {
+                return item.id !== id;
+              });
+            });
+          }
+
+          function clearCompleted() {
+            setItems(function(current) {
+              return current.filter(function(item) {
+                return !item.done;
+              });
+            });
+          }
+
+          return React.createElement(
+            "div", {
+              className: "max-w-4xl mx-auto"
+            },
+            React.createElement(
+              "div", {
+                className: "text-center mb-12"
+              },
+              React.createElement("span", {
+                className: "badge mb-4"
+              }, "React ToDo"),
+              React.createElement("h2", {
+                className: "page-title md:text-5xl mb-4"
+              }, "Organize your day beautifully"),
+              React.createElement(
+                "p", {
+                  className: "lead max-w-2xl mx-auto"
+                },
+                "A clean, focused task list built with React and styled entirely with the Nexus design system."
+              )
+            ),
+            React.createElement(
+              "div", {
+                className: "grid lg:grid-cols-3 gap-8"
+              },
+              React.createElement(
+                "div", {
+                  className: "lg:col-span-2"
+                },
+                React.createElement(
+                  "div", {
+                    className: "card"
+                  },
+                  React.createElement(
+                    "div", {
+                      className: "card__header"
+                    },
+                    React.createElement("h3", {
+                      className: "card__title"
+                    }, "Today’s tasks"),
+                    React.createElement(
+                      "p", {
+                        className: "card__description"
+                      },
+                      "Add, complete, filter, and remove tasks without leaving the page."
+                    )
+                  ),
+                  React.createElement(
+                    "div", {
+                      className: "card__body"
+                    },
+                    React.createElement(
+                      "form", {
+                        className: "flex flex-col sm:flex-row gap-3 mb-6",
+                        onSubmit: addItem
+                      },
+                      React.createElement("label", {
+                        className: "sr-only",
+                        htmlFor: "nexus-todo-new-task"
+                      }, "New task"),
+                      React.createElement("input", {
+                        className: "input",
+                        id: "nexus-todo-new-task",
+                        type: "text",
+                        value: text,
+                        placeholder: "Add a task, idea, or reminder…",
+                        onChange: function(event) {
+                          setText(event.target.value);
+                        }
+                      }),
+                      React.createElement("button", {
+                        className: "btn btn-primary",
+                        type: "submit"
+                      }, "Add task")
+                    ),
+                    React.createElement(
+                      "div", {
+                        className: "flex flex-wrap items-center justify-between gap-3 mb-6"
+                      },
+                      React.createElement(
+                        "div", {
+                          className: "flex flex-wrap gap-2",
+                          role: "tablist",
+                          "aria-label": "Filter tasks"
+                        },
+                        ["all", "active", "completed"].map(function(name) {
+                          return React.createElement(
+                            "button", {
+                              key: name,
+                              className: filter === name ? "tag is-active" : "tag",
+                              type: "button",
+                              onClick: function() {
+                                setFilter(name);
+                              }
+                            },
+                            name.charAt(0).toUpperCase() + name.slice(1)
+                          );
+                        })
+                      ),
+                      React.createElement(
+                        "div", {
+                          className: "filter"
+                        },
+                        React.createElement(
+                          "button", {
+                            className: "filter__toggle",
+                            type: "button",
+                            "aria-expanded": sortOpen ? "true" : "false",
+                            "aria-haspopup": "menu",
+                            onClick: function() {
+                              setSortOpen(function(open) {
+                                return !open;
+                              });
+                            }
+                          },
+                          React.createElement("span", null, "Sort: " + sortLabel),
+                          React.createElement(
+                            "svg", {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              width: "24",
+                              height: "24",
+                              viewBox: "0 0 24 24",
+                              fill: "none",
+                              stroke: "currentColor",
+                              strokeWidth: "2",
+                              strokeLinecap: "round",
+                              strokeLinejoin: "round",
+                              "aria-hidden": "true"
+                            },
+                            React.createElement("path", {
+                              d: "m6 9 6 6 6-6"
+                            })
+                          )
+                        ),
+                        sortOpen ? React.createElement(
+                          "div", {
+                            className: "filter__menu",
+                            role: "menu",
+                            "aria-label": "Sort tasks"
+                          },
+                          nexusTodoSortOptions.map(function(option) {
+                            return React.createElement(
+                              "button", {
+                                key: option.value,
+                                className: sort === option.value ? "filter__option is-selected" :
+                                  "filter__option",
+                                type: "button",
+                                role: "menuitem",
+                                onClick: function() {
+                                  setSort(option.value);
+                                  setSortOpen(false);
+                                }
+                              },
+                              React.createElement("span", null, option.label),
+                              sort === option.value ? React.createElement("span", {
+                                className: "dot",
+                                "aria-hidden": "true"
+                              }) : null
+                            );
+                          })
+                        ) : null
+                      )
+                    ),
+                    visibleItems.length ?
+                    React.createElement(
+                      "ul", {
+                        className: "flex flex-col gap-3"
+                      },
+                      visibleItems.map(function(item) {
+                        return React.createElement(
+                          "li", {
+                            key: item.id,
+                            className: "flex items-center justify-between gap-4 bg-muted rounded-lg p-4"
+                          },
+                          React.createElement(
+                            "button", {
+                              className: "flex items-center gap-3 text-left flex-1",
+                              type: "button",
+                              onClick: function() {
+                                toggleItem(item.id);
+                              },
+                              "aria-pressed": item.done ? "true" : "false"
+                            },
+                            React.createElement("span", {
+                              className: item.done ? "badge" : "badge badge-outline"
+                            }, item.done ? "Done" : "Open"),
+                            React.createElement(
+                              "span", {
+                                className: item.done ? "text-muted-foreground" : "text-foreground font-medium"
+                              },
+                              item.text
+                            )
+                          ),
+                          React.createElement(
+                            "button", {
+                              className: "btn btn-ghost btn-sm",
+                              type: "button",
+                              onClick: function() {
+                                removeItem(item.id);
+                              },
+                              "aria-label": "Remove " + item.text
+                            },
+                            "Remove"
+                          )
+                        );
+                      })
+                    ) :
+                    React.createElement(
+                      "div", {
+                        className: "text-center py-12"
+                      },
+                      React.createElement("p", {
+                        className: "text-muted-foreground"
+                      }, "No tasks match this filter.")
+                    )
+                  ),
+                  React.createElement(
+                    "div", {
+                      className: "card__footer justify-between flex-wrap"
+                    },
+                    React.createElement("p", {
+                      className: "text-sm text-muted-foreground"
+                    }, activeCount + " active · " + completedCount + " completed"),
+                    React.createElement(
+                      "button", {
+                        className: "btn btn-sm",
+                        type: "button",
+                        onClick: clearCompleted,
+                        disabled: completedCount === 0
+                      },
+                      "Clear completed"
+                    )
+                  )
+                )
+              ),
+              React.createElement(
+                "aside", {
+                  className: "flex flex-col gap-6"
+                },
+                React.createElement(
+                  "div", {
+                    className: "card bg-muted"
+                  },
+                  React.createElement(
+                    "div", {
+                      className: "card__body pt-6"
+                    },
+                    React.createElement("h3", {
+                      className: "text-xl font-bold mb-4"
+                    }, "Progress"),
+                    React.createElement(
+                      "div", {
+                        className: "flex flex-col gap-4"
+                      },
+                      React.createElement(
+                        "div", {
+                          className: "flex items-center gap-3 text-muted-foreground"
+                        },
+                        React.createElement("span", {
+                          className: "dot"
+                        }),
+                        React.createElement("span", null, items.length + " total tasks")
+                      ),
+                      React.createElement(
+                        "div", {
+                          className: "flex items-center gap-3 text-muted-foreground"
+                        },
+                        React.createElement("span", {
+                          className: "dot"
+                        }),
+                        React.createElement("span", null, activeCount + " still open")
+                      ),
+                      React.createElement(
+                        "div", {
+                          className: "flex items-center gap-3 text-muted-foreground"
+                        },
+                        React.createElement("span", {
+                          className: "dot"
+                        }),
+                        React.createElement("span", null, completedCount + " finished")
+                      )
+                    )
+                  )
+                ),
+                React.createElement(
+                  "div", {
+                    className: "card"
+                  },
+                  React.createElement(
+                    "div", {
+                      className: "card__header"
+                    },
+                    React.createElement("h3", {
+                      className: "card__title"
+                    }, "Focus tip")
+                  ),
+                  React.createElement(
+                    "div", {
+                      className: "card__body"
+                    },
+                    React.createElement(
+                      "p", {
+                        className: "text-sm text-muted-foreground leading-relaxed"
+                      },
+                      "Keep the list short, start with one meaningful task, and clear completed items at the end of the day."
+                    )
+                  )
+                )
+              )
+            )
+          );
+        }
+
+        const nexusTodoRootElement = document.getElementById("nexus-todo-react-root");
+        if (nexusTodoRootElement) {
+          createRoot(nexusTodoRootElement).render(React.createElement(NexusTodoApp));
+        }
+      </script>
+    </section>
+    <!-- ===== Footer ===== -->
+    <footer class="site-footer" role="contentinfo">
+      <div class="container py-12">
+        <div class="grid md:grid-cols-4 gap-8">
+          <div class="flex flex-col gap-4">
+            <h2 class="text-lg font-bold text-foreground">nexus</h2>
+            <p class="text-sm text-muted-foreground">
+              A personal blog exploring fashion, technology, business, and
+              lifestyle trends.
+            </p>
+          </div>
+          <div class="flex flex-col gap-4">
+            <h3 class="font-medium text-foreground">Categories</h3>
+            <ul class="flex flex-col gap-2 text-sm">
+              <li><a class="footer-link" href="/posts.html">Fashion 1</a></li>
+              <li>
+                <a class="footer-link" href="/technology.html">Technology</a>
+              </li>
+              <li>
+                <a class="footer-link" href="/business.html">Business</a>
+              </li>
+              <li><a class="footer-link" href="/posts.html">Lifestyle</a></li>
+            </ul>
+          </div>
+          <div class="flex flex-col gap-4">
+            <h3 class="font-medium text-foreground">Quick Links</h3>
+            <ul class="flex flex-col gap-2 text-sm">
+              <li><a class="footer-link" href="/about.html">About</a></li>
+              <li><a class="footer-link" href="/contact.html">Contact</a></li>
+              <li><a class="footer-link" href="/privacy.html">Privacy</a></li>
+              <li><a class="footer-link" href="/terms.html">Terms</a></li>
+            </ul>
+          </div>
+          <div class="flex flex-col gap-4">
+            <h3 class="font-medium text-foreground">Connect</h3>
+            <div class="flex gap-4">
+              <a class="footer-link" href="#" aria-label="Follow us on Facebook">Facebook</a>
+              <a class="footer-link" href="#" aria-label="Follow us on Twitter">Twitter</a>
+              <a class="footer-link" href="#" aria-label="Follow us on Instagram">Instagram</a>
+            </div>
+          </div>
+        </div>
+        <div class="border-t mt-8 pt-8 text-center">
+          <p class="text-sm text-muted-foreground">
+            © 2026 Nexus Blog. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+  
+</body></html>

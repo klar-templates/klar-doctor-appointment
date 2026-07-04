@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+    <title>Nexus - Personal Blog | Fashion, Technology &amp; Lifestyle</title>
+    <meta name="description"
+      content="Explore the latest in fashion trends, technology insights, business strategies, and lifestyle inspiration on Nexus personal blog.">
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/dmsans/v17/rP2Hp2ywxg089UriCZOIHQ.woff2">
+    <link rel="stylesheet" href="/style.css">
+    <script>
+      (function() {
+        try {
+          var d = document.documentElement,
+            c = d.classList;
+          if (localStorage.getItem("theme") === "dark") {
+            d.style.colorScheme = "dark";
+            c.remove("light");
+            c.add("dark");
+          } else {
+            d.style.colorScheme = "light";
+            c.remove("dark");
+            c.add("light");
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <script src="https://editor.klar.website/sdk/content-static.iife.js"></script>
+    <script type="module" src="/script.js"></script>
+    <script data-klar-config="">
+      const config = {
+        pageTypes: [{
+          name: "blog-post",
+          editableElements: `.field-title        :field(title: Title, name: title, type:string, order:1, section: Content, sectionOrder:1),
+.field-image     	:field(title: Image, name: image, type:image, order:2, col: 6, section:'Content'),
+.field-category  	:field(title: Category, name: category, type:string, col:6, section:Meta, sectionOrder:2, options(vocab:categories)),
+.field-author    	:field(title: Author, name: author, type:string, options(vocab:authors), col:6, section:'Meta', sectionOrder:2),
+.field-createdAt 	:field(title: Created, name: createdAt, type:string, format:date, options(dateFormat:'MMMM D, YYYY', dbField: createdAt)),
+.field-initial      :field(title: Initial, name: initial, type:string, order:5, col:6),
+.field-readTime  	:field(title: Read time, name: readTime, type:string, order: 5, col: 6),
+.field-list         :field(title: List, name: list, type:array, options(layout:list)),
+.field-text      	:field(title: Content, name: text, type:array, options(layout:blocks)),
+                 	:field(title: Lead, name: lead, type:text, default: 'Blog post excerpt — Brief description of the article content for preview.', order:3, section:'Content', col: 6, options(layout:editor))`,
+        }],
+        pages: [{
+            name: "blog/blog-post-1.html",
+            content: {
+              categories: ["Technology", "Podcast", "Lifestyle"],
+              tags: ["Leadership", "Authenticity"],
+            }
+          },
+          {
+            name: "blog/blog-post-2.html",
+            content: {
+              categories: ["Technology", "Business", "Lifestyle"],
+              tags: ["Leadership"],
+            }
+          },
+          {
+            name: "blog/blog-post-3.html",
+            content: {
+              categories: ["Technology", "Lifestyle"],
+              tags: ["Authenticity"],
+            }
+          },
+          {
+            name: "blog/blog-post-4.html",
+            content: {
+              categories: ["Technology", "Podcast", "Business", "Lifestyle"],
+              topics: ["Digital Marketing", "Personal Branding"],
+              tags: ["Personal Branding"],
+            }
+          },
+          {
+            name: "blog/blog-post-5.html",
+            content: {
+              categories: ["Business", "Lifestyle"],
+              tags: ["Leadership", "Authenticity"],
+            }
+          },
+          {
+            name: "blog/blog-post-6.html",
+            content: {
+              categories: ["Technology"],
+              topics: ["Personal Branding", "Digital Marketing"],
+              tags: ["Leadership", "Authenticity"],
+            }
+          },
+        ],
+        vocabularies: {
+          categories: ["Technology", "Podcast", "Lifestyle"],
+          topics: ["Digital Marketing", "Personal Branding"],
+          tags: ["Leadership", "Authenticity"],
+          authors: ["Lisa Eriksson", "Klar Karlsson", "Niklas Svensson"],
+        }
+      };
+    </script>
+  </head>
+  <body>
+    <div class="min-h-screen bg-background">
+      <header class="site-header" id="header">
+        <div class="container">
+          <div class="site-header__bar">
+            <a class="brand" href="/index.html">nexus</a>
+            <nav class="nav-desktop items-center gap-8" aria-label="Main navigation"><a class="nav-link"
+                href="/posts.html">ALL POST</a>
+              <a class="nav-link" href="/business.html">BUSINESS</a>
+              <a class="nav-link" href="/technology.html">TECHNOLOGY</a>
+              <a class="nav-link" href="/podcast.html">PODCAST</a>
+            </nav>
+            <div class="nav-desktop items-center gap-2">
+              <!--
+              <a href="#" class="btn btn-icon" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                  height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                </svg></a>
+              <a href="#" class="btn btn-icon" aria-label="Twitter"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                  height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z">
+                  </path>
+                </svg></a>
+              <a href="#" class="btn btn-icon" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                  height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+                </svg></a>
+              -->
+              <a href="/search.html" class="btn btn-icon" aria-label="Search articles"><svg
+                  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <path d="m21 21-4.3-4.3"></path>
+                </svg></a>
+              <button class="btn btn-icon" aria-label="Toggle theme">
+                <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="4"></circle>
+                  <path d="M12 2v2"></path>
+                  <path d="M12 20v2"></path>
+                  <path d="m4.93 4.93 1.41 1.41"></path>
+                  <path d="m17.66 17.66 1.41 1.41"></path>
+                  <path d="M2 12h2"></path>
+                  <path d="M20 12h2"></path>
+                  <path d="m6.34 17.66-1.41 1.41"></path>
+                  <path d="m19.07 4.93-1.41 1.41"></path>
+                </svg>
+                <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+                </svg>
+              </button>
+            </div>
+            <button id="mobile-menu-toggle" class="btn btn-icon nav-mobile-toggle" aria-label="Toggle menu">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="4" x2="20" y1="12" y2="12"></line>
+                <line x1="4" x2="20" y1="6" y2="6"></line>
+                <line x1="4" x2="20" y1="18" y2="18"></line>
+              </svg>
+            </button>
+          </div>
+          <div id="mobile-menu" class="hidden border-t py-4">
+            <nav class="flex flex-col gap-4" aria-label="Mobile navigation">
+              <a class="nav-link" href="/posts.html">ALL POST</a>
+              <a class="nav-link" href="/business.html">BUSINESS</a>
+              <a class="nav-link" href="/technology.html">TECHNOLOGY</a>
+              <a class="nav-link" href="/podcast.html">PODCAST</a>
+            </nav>
+          </div>
+        </div>
+      </header>
+      <main>
+        <section class="container py-16" aria-labelledby="team-heading">
+          <div class="text-center mb-12">
+            <span class="badge badge-secondary mb-4">Our Team</span>
+            <h2 id="team-heading" class="page-title md:text-5xl mb-4">Meet the voices behind Nexus</h2>
+            <p class="lead max-w-2xl mx-auto">A small editorial team of writers, strategists, and creators exploring
+              fashion, technology, business, and modern lifestyle.</p>
+          </div>
+
+          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <article class="card">
+              <div class="card__body pt-6 text-center flex flex-col items-center gap-4">
+                <div class="overflow-hidden rounded-full aspect-square w-full bg-muted">
+                  <img class="w-full h-full object-cover"
+                    src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&amp;fit=crop&amp;w=600&amp;q=80"
+                    alt="Portrait of Alex Morgan" width="600" height="600" loading="lazy">
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold mb-2">Alex Morgan</h3>
+                  <p class="blog-meta justify-center mb-4">Editor in Chief</p>
+                  <p class="text-sm text-muted-foreground leading-relaxed">Shapes the editorial calendar and keeps every
+                    story sharp, thoughtful, and useful.</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card__body pt-6 text-center flex flex-col items-center gap-4">
+                <div class="overflow-hidden rounded-full aspect-square w-full bg-muted">
+                  <img class="w-full h-full object-cover"
+                    src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&amp;fit=crop&amp;w=600&amp;q=80"
+                    alt="Portrait of Sara Lee" width="600" height="600" loading="lazy">
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold mb-2">Sara Lee</h3>
+                  <p class="blog-meta justify-center mb-4">Fashion Writer</p>
+                  <p class="text-sm text-muted-foreground leading-relaxed">Covers style culture, trend cycles, and the
+                    creators changing how fashion moves online.</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card__body pt-6 text-center flex flex-col items-center gap-4">
+                <div class="overflow-hidden rounded-full aspect-square w-full bg-muted">
+                  <img class="w-full h-full object-cover"
+                    src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&amp;fit=crop&amp;w=600&amp;q=80"
+                    alt="Portrait of Daniel Kim" width="600" height="600" loading="lazy">
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold mb-2">Daniel Kim</h3>
+                  <p class="blog-meta justify-center mb-4">Technology Lead</p>
+                  <p class="text-sm text-muted-foreground leading-relaxed">Explains emerging tools, product shifts, and
+                    the systems behind the digital world.</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card__body pt-6 text-center flex flex-col items-center gap-4">
+                <div class="overflow-hidden rounded-full aspect-square w-full bg-muted">
+                  <img class="w-full h-full object-cover"
+                    src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&amp;fit=crop&amp;w=600&amp;q=80"
+                    alt="Portrait of Maya Patel" width="600" height="600" loading="lazy">
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold mb-2">Maya Patel</h3>
+                  <p class="blog-meta justify-center mb-4">Business Editor</p>
+                  <p class="text-sm text-muted-foreground leading-relaxed">Writes about entrepreneurship, brand
+                    strategy, and the decisions that build durable companies.</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card__body pt-6 text-center flex flex-col items-center gap-4">
+                <div class="overflow-hidden rounded-full aspect-square w-full bg-muted">
+                  <img class="w-full h-full object-cover"
+                    src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&amp;fit=crop&amp;w=600&amp;q=80"
+                    alt="Portrait of Emma Brooks" width="600" height="600" loading="lazy">
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold mb-2">Emma Brooks</h3>
+                  <p class="blog-meta justify-center mb-4">Lifestyle Writer</p>
+                  <p class="text-sm text-muted-foreground leading-relaxed">Finds practical ideas for better routines,
+                    creative work, and more intentional living.</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card__body pt-6 text-center flex flex-col items-center gap-4">
+                <div class="overflow-hidden rounded-full aspect-square w-full bg-muted">
+                  <img class="w-full h-full object-cover"
+                    src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&amp;fit=crop&amp;w=600&amp;q=80"
+                    alt="Portrait of Noah Rivera" width="600" height="600" loading="lazy">
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold mb-2">Noah Rivera</h3>
+                  <p class="blog-meta justify-center mb-4">Podcast Producer</p>
+                  <p class="text-sm text-muted-foreground leading-relaxed">Produces conversations with founders, makers,
+                    writers, and culture-shaping thinkers.</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card__body pt-6 text-center flex flex-col items-center gap-4">
+                <div class="overflow-hidden rounded-full aspect-square w-full bg-muted">
+                  <img class="w-full h-full object-cover"
+                    src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&amp;fit=crop&amp;w=600&amp;q=80"
+                    alt="Portrait of Lena Hoff" width="600" height="600" loading="lazy">
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold mb-2">Lena Hoff</h3>
+                  <p class="blog-meta justify-center mb-4">Creative Director</p>
+                  <p class="text-sm text-muted-foreground leading-relaxed">Guides the visual language of Nexus across
+                    photography, layouts, and campaigns.</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card__body pt-6 text-center flex flex-col items-center gap-4">
+                <div class="overflow-hidden rounded-full aspect-square w-full bg-muted">
+                  <img class="w-full h-full object-cover"
+                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&amp;fit=crop&amp;w=600&amp;q=80"
+                    alt="Portrait of Oliver Stone" width="600" height="600" loading="lazy">
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold mb-2">Oliver Stone</h3>
+                  <p class="blog-meta justify-center mb-4">Community Manager</p>
+                  <p class="text-sm text-muted-foreground leading-relaxed">Connects with readers, contributors, and
+                    partners to keep the Nexus community growing.</p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+      </main>
+      <footer class="site-footer" role="contentinfo">
+        <div class="container py-12">
+          <div class="grid md:grid-cols-4 gap-8">
+            <div class="flex flex-col gap-4">
+              <h2 class="text-lg font-bold text-foreground">nexus</h2>
+              <p class="text-sm text-muted-foreground">
+                A personal blog exploring fashion, technology, business, and
+                lifestyle trends.
+              </p>
+            </div>
+            <div class="flex flex-col gap-4">
+              <h3 class="font-medium text-foreground">Categories</h3>
+              <ul class="flex flex-col gap-2 text-sm">
+                <li><a class="footer-link" href="/posts.html">Fashion 1</a></li>
+                <li>
+                  <a class="footer-link" href="/technology.html">Technology</a>
+                </li>
+                <li>
+                  <a class="footer-link" href="/business.html">Business</a>
+                </li>
+                <li><a class="footer-link" href="/posts.html">Lifestyle</a></li>
+              </ul>
+            </div>
+            <div class="flex flex-col gap-4">
+              <h3 class="font-medium text-foreground">Quick Links</h3>
+              <ul class="flex flex-col gap-2 text-sm">
+                <li><a class="footer-link" href="/about.html">About</a></li>
+                <li><a class="footer-link" href="/contact.html">Contact</a></li>
+                <li><a class="footer-link" href="/privacy.html">Privacy</a></li>
+                <li><a class="footer-link" href="/terms.html">Terms</a></li>
+              </ul>
+            </div>
+            <div class="flex flex-col gap-4">
+              <h3 class="font-medium text-foreground">Connect</h3>
+              <div class="flex gap-4">
+                <a class="footer-link" href="#" aria-label="Follow us on Facebook">Facebook</a>
+                <a class="footer-link" href="#" aria-label="Follow us on Twitter">Twitter</a>
+                <a class="footer-link" href="#" aria-label="Follow us on Instagram">Instagram</a>
+              </div>
+            </div>
+          </div>
+          <div class="border-t mt-8 pt-8 text-center">
+            <p class="text-sm text-muted-foreground">
+              © 2026 Nexus Blog. All rights reserved.
+            </p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

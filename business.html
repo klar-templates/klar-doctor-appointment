@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+    <title>Nexus - Personal Blog | Fashion, Technology &amp; Lifestyle</title>
+    <meta name="description" content="Explore the latest in fashion trends, technology insights, business strategies, and lifestyle inspiration on Nexus personal blog.">
+    <link rel="preload" as="font" type="font/woff2" crossorigin="" href="https://fonts.gstatic.com/s/dmsans/v17/rP2Hp2ywxg089UriCZOIHQ.woff2">
+    <link rel="stylesheet" href="/style.css">
+    <script>
+      (function() {
+        try {
+          var d = document.documentElement,
+            c = d.classList;
+          if (localStorage.getItem('theme') === 'dark') {
+            d.style.colorScheme = 'dark';
+            c.remove('light');
+            c.add('dark');
+          } else {
+            d.style.colorScheme = 'light';
+            c.remove('dark');
+            c.add('light');
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <script src="https://editor.klar.website/sdk/content-static.iife.js"></script>
+    <script type="module" src="/script.js"></script>
+  </head>
+  <body>
+    <template data-for="all-posts" data-query="list('blog-post', {where: {categories: 'Business'},order: 'updated_at:desc', limit: 10})">
+      {% for post in items %}
+      <article class="blog-card">
+        <a class="block" href="{{ post.filePath }}" aria-label="Read article">
+          <div class="blog-card__media">
+            <img src="{{ post.image.src }}" alt="" width="387" height="291" loading="lazy">
+          </div>
+          <div class="blog-card__body">
+            <div class="flex items-center gap-2">
+              <span class="blog-meta">{{ post.category }}</span><span class="text-muted-foreground text-xs" aria-hidden="true">—</span><time class="blog-meta" datetime="2026-05-10">May 10, 2026</time>
+            </div>
+            <h3 class="blog-card__title">{{ post.title }}</h3>
+            <p class="blog-card__excerpt">{{ post.lead }}</p>
+          </div>
+        </a>
+      </article>
+      {% endfor %}
+    </template>
+    <div class="min-h-screen bg-background">
+
+      <!-- ===== Header ===== -->
+      <header class="site-header" id="header">
+        <div class="container">
+          <div class="site-header__bar">
+            <a class="brand" href="/index.html">nexus</a>
+            <nav class="nav-desktop items-center gap-8" aria-label="Main navigation"><a class="nav-link" href="/posts.html">ALL POST</a>
+              <a class="nav-link" href="/business.html">BUSINESS</a>
+              <a class="nav-link" href="/technology.html">TECHNOLOGY</a>
+              <a class="nav-link" href="/podcast.html">PODCAST</a>
+            </nav>
+            <div class="nav-desktop items-center gap-2">
+              <!--
+              <a href="#" class="btn btn-icon" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                  height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                </svg></a>
+              <a href="#" class="btn btn-icon" aria-label="Twitter"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                  height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z">
+                  </path>
+                </svg></a>
+              <a href="#" class="btn btn-icon" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                  height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+                </svg></a>
+              -->
+              <a href="/search.html" class="btn btn-icon" aria-label="Search articles"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <path d="m21 21-4.3-4.3"></path>
+                </svg></a>
+              <button class="btn btn-icon" aria-label="Toggle theme">
+                <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="4"></circle>
+                  <path d="M12 2v2"></path>
+                  <path d="M12 20v2"></path>
+                  <path d="m4.93 4.93 1.41 1.41"></path>
+                  <path d="m17.66 17.66 1.41 1.41"></path>
+                  <path d="M2 12h2"></path>
+                  <path d="M20 12h2"></path>
+                  <path d="m6.34 17.66-1.41 1.41"></path>
+                  <path d="m19.07 4.93-1.41 1.41"></path>
+                </svg>
+                <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+                </svg>
+              </button>
+            </div>
+            <button id="mobile-menu-toggle" class="btn btn-icon nav-mobile-toggle" aria-label="Toggle menu">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="4" x2="20" y1="12" y2="12"></line>
+                <line x1="4" x2="20" y1="6" y2="6"></line>
+                <line x1="4" x2="20" y1="18" y2="18"></line>
+              </svg>
+            </button>
+          </div>
+          <div id="mobile-menu" class="hidden border-t py-4">
+            <nav class="flex flex-col gap-4" aria-label="Mobile navigation">
+              <a class="nav-link" href="/posts.html">ALL POST</a>
+              <a class="nav-link" href="/business.html">BUSINESS</a>
+              <a class="nav-link" href="/technology.html">TECHNOLOGY</a>
+              <a class="nav-link" href="/podcast.html">PODCAST</a>
+            </nav>
+          </div>
+        </div>
+      </header>
+
+      <!-- ===== Main ===== -->
+      <main id="main-content" class="container py-12">
+
+        <div class="text-center mb-12">
+          <h1 class="page-title mb-4">Business</h1>
+          <p class="lead max-w-2xl mx-auto">Insights and strategies for modern business leaders and entrepreneurs
+            navigating today's competitive landscape.</p>
+        </div>
+
+        <!-- Filters -->
+        <div class="flex flex-col sm:flex-row gap-4 items-start mb-4" data-filters="">
+          <div class="filter" data-facet="topics">
+            <button class="filter__toggle" data-filter-toggle="topic" data-default-label="All Topics" aria-expanded="false" aria-label="Filter by Topic">
+              <span>All Topics</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m6 9 6 6 6-6"></path>
+              </svg>
+            </button>
+            <div class="filter__menu hidden" data-filter-menu="">
+              <button class="filter__option is-selected" data-value="all">All Topics</button>
+              <div id="all-topics" data-klar-static><button class="filter__option" data-value="Personal Branding">Personal Branding <span class="text-muted-foreground">(2)</span></button><button class="filter__option" data-value="Digital Marketing">Digital Marketing <span class="text-muted-foreground">(1)</span></button></div>
+            </div>
+
+            <template id="all-topics-template"><button class="filter__option" data-value="${value}">${value} <span class="text-muted-foreground">(${count})</span></button></template>
+            <script type="module">
+              const t = document.getElementById('all-topics-template').innerHTML;
+              if (window.klarSdk) klarSdk.facets('blog-post', 'topics', {
+                where: {
+                  categories: 'Business'
+                }
+              }).then(f => {
+                // console.log(f);
+                klarSdk.insert('#all-topics',
+                  'replace', klarSdk.render(f, t))
+              });
+            </script>
+
+          </div>
+          <div class="filter" data-facet="tags">
+            <button class="filter__toggle" data-filter-toggle="tag" data-default-label="All Tags" aria-expanded="false" aria-label="Filter by Tag">
+              <span>All Tags</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m6 9 6 6 6-6"></path>
+              </svg>
+            </button>
+            <div class="filter__menu hidden" data-filter-menu="">
+              <button class="filter__option is-selected" data-value="all">All Tags</button>
+              <div id="all-tags" data-klar-static><button class="filter__option" data-value="Leadership">Leadership
+                  <span class="text-muted-foreground">(4)</span></button><button class="filter__option" data-value="Authenticity">Authenticity <span class="text-muted-foreground">(2)</span></button></div>
+            </div>
+
+            <template id="all-tags-template"><button class="filter__option" data-value="${value}">${value} <span class="text-muted-foreground">(${count})</span></button></template>
+            <script type="module">
+              const t = document.getElementById('all-tags-template').innerHTML;
+              if (window.klarSdk) klarSdk.facets('blog-post', 'tags', {
+                where: {
+                  categories: 'Business'
+                }
+              }).then(f => klarSdk.insert('#all-tags', 'replace',
+                klarSdk.render(f, t)));
+            </script>
+
+          </div>
+          <button id="clear-filters" class="btn btn-sm hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 6 6 18"></path>
+              <path d="m6 6 12 12"></path>
+            </svg>
+            Clear Filters
+          </button>
+        </div>
+        <p id="filter-info" class="text-sm text-muted-foreground mb-8 hidden"></p>
+
+        <!-- Posts grid (static fallback; replaced by #all-posts-tpl render when CMS data loads) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="all-posts" data-klar-static data-page-type="blog-post" data-category="Business">
+      
+      <article class="blog-card">
+        <a class="block" href="blog/blog-post-5.html" aria-label="Read article">
+          <div class="blog-card__media">
+            <img src="/images/work-lifestyle-Bg_wzXQT.jpg" alt="" width="387" height="291" loading="lazy">
+          </div>
+          <div class="blog-card__body">
+            <div class="flex items-center gap-2">
+              <span class="blog-meta">Business</span><span class="text-muted-foreground text-xs" aria-hidden="true">—</span><time class="blog-meta" datetime="2026-05-10">May 10, 2026</time>
+            </div>
+            <h3 class="blog-card__title">Fashion Forward: How Digital Voices Rewrote the Rules of Style</h3>
+            <p class="blog-card__excerpt">Blog post excerpt — Brief description of the article content for preview. </p>
+          </div>
+        </a>
+      </article>
+      
+      <article class="blog-card">
+        <a class="block" href="blog/blog-post-6.html" aria-label="Read article">
+          <div class="blog-card__media">
+            <img src="/images/business-post-6IsrfXyD.jpg" alt="" width="387" height="291" loading="lazy">
+          </div>
+          <div class="blog-card__body">
+            <div class="flex items-center gap-2">
+              <span class="blog-meta">Technology</span><span class="text-muted-foreground text-xs" aria-hidden="true">—</span><time class="blog-meta" datetime="2026-05-10">May 10, 2026</time>
+            </div>
+            <h3 class="blog-card__title">From Diaries to Empires: The Rise of Fashion's Digital Voices</h3>
+            <p class="blog-card__excerpt">Blog post excerpt — Brief description of the article content for preview. </p>
+          </div>
+        </a>
+      </article>
+      
+      <article class="blog-card">
+        <a class="block" href="blog/blog-post-3.html" aria-label="Read article">
+          <div class="blog-card__media">
+            <img src="/images/fashion-post-4m_ykv-I.jpg" alt="" width="387" height="291" loading="lazy">
+          </div>
+          <div class="blog-card__body">
+            <div class="flex items-center gap-2">
+              <span class="blog-meta">Business</span><span class="text-muted-foreground text-xs" aria-hidden="true">—</span><time class="blog-meta" datetime="2026-05-10">May 10, 2026</time>
+            </div>
+            <h3 class="blog-card__title">Fashion Blogging: The Digital Revolution That Reshaped the Style Industry</h3>
+            <p class="blog-card__excerpt">Blog post excerpt — Brief description of the article content for preview. </p>
+          </div>
+        </a>
+      </article>
+      
+      <article class="blog-card">
+        <a class="block" href="blog/blog-post-4.html" aria-label="Read article">
+          <div class="blog-card__media">
+            <img src="/images/hero-image-xUp6gwWA.jpg" alt="" width="387" height="291" loading="lazy">
+          </div>
+          <div class="blog-card__body">
+            <div class="flex items-center gap-2">
+              <span class="blog-meta">Technology</span><span class="text-muted-foreground text-xs" aria-hidden="true">—</span><time class="blog-meta" datetime="2026-05-10">May 10, 2026</time>
+            </div>
+            <h3 class="blog-card__title">How Fashion Blogging Reshaped the Style Industry Forever</h3>
+            <p class="blog-card__excerpt">Blog post excerpt — Brief description of the article content for preview. </p>
+          </div>
+        </a>
+      </article>
+      
+      <article class="blog-card">
+        <a class="block" href="blog/blog-post-1.html" aria-label="Read article">
+          <div class="blog-card__media">
+            <img src="/images/work-lifestyle-Bg_wzXQT.jpg" alt="" width="387" height="291" loading="lazy">
+          </div>
+          <div class="blog-card__body">
+            <div class="flex items-center gap-2">
+              <span class="blog-meta">Business</span><span class="text-muted-foreground text-xs" aria-hidden="true">—</span><time class="blog-meta" datetime="2026-05-10">May 10, 2026</time>
+            </div>
+            <h3 class="blog-card__title">The Rise of Fashion Blogging: How Digital Voices Reshaped the Style Industry</h3>
+            <p class="blog-card__excerpt">Blog post excerpt — Brief description of the article content for preview. </p>
+          </div>
+        </a>
+      </article>
+      
+      <article class="blog-card">
+        <a class="block" href="blog/blog-post-2.html" aria-label="Read article">
+          <div class="blog-card__media">
+            <img src="/images/fashion-lifestyle-tBv1CS6f (1).jpg" alt="" width="387" height="291" loading="lazy">
+          </div>
+          <div class="blog-card__body">
+            <div class="flex items-center gap-2">
+              <span class="blog-meta">Business</span><span class="text-muted-foreground text-xs" aria-hidden="true">—</span><time class="blog-meta" datetime="2026-05-10">May 10, 2026</time>
+            </div>
+            <h3 class="blog-card__title">Fashion Blogging: The Digital Revolution That Reshaped the Style Industry</h3>
+            <p class="blog-card__excerpt">Blog post excerpt — Brief description of the article content for preview. </p>
+          </div>
+        </a>
+      </article>
+      
+    </div>
+
+        <template id="all-posts-tpl">
+          <article class="blog-card">
+            <a class="block" href="${url}">
+              <div class="blog-card__media"><img src="${content.image.src}" alt="" width="387" height="291" loading="lazy"></div>
+              <div class="blog-card__body">
+                <div class="flex items-center gap-2"><span class="blog-meta">${content.category}</span><span class="text-muted-foreground text-xs" aria-hidden="true">—</span><time class="blog-meta" datetime="2026-05-10">May 10, 2026</time></div>
+                <h3 class="blog-card__title">${content.title}</h3>
+                <p class="blog-card__excerpt">Explore how fashion bloggers and influencers have transformed the industry
+                  landscape.</p>
+              </div>
+            </a>
+          </article>
+        </template>
+
+
+        <script type="module">
+          const allPostsTpl = document.getElementById('all-posts-tpl').innerHTML;
+          if (window.klarSdk) {
+            klarSdk.list('blog-post', {
+              where: {
+                categories: 'Business'
+              },
+              order: 'updated_at:desc',
+              limit: 10
+            }).then(items => {
+              window.posts = items;
+              // if (items && items.length) klarSdk.insert('#all-posts', 'replace', klarSdk.render(items,
+              //   allPostsTpl));
+              // localStorage.setItem('all-posts', JSON.stringify(items || []));
+            });
+          }
+        </script>
+
+      </main>
+
+      <!-- ===== Footer ===== -->
+      <footer class="site-footer" role="contentinfo">
+        <div class="container py-12">
+          <div class="grid md:grid-cols-4 gap-8">
+            <div class="flex flex-col gap-4">
+              <h2 class="text-lg font-bold text-foreground">nexus</h2>
+              <p class="text-sm text-muted-foreground">A personal blog exploring fashion, technology, business, and
+                lifestyle trends.</p>
+            </div>
+            <div class="flex flex-col gap-4">
+              <h3 class="font-medium text-foreground">Categories</h3>
+              <ul class="flex flex-col gap-2 text-sm">
+                <li><a class="footer-link" href="/posts.html">Fashion</a></li>
+                <li><a class="footer-link" href="/technology.html">Technology</a></li>
+                <li><a class="footer-link" href="/business.html">Business</a></li>
+                <li><a class="footer-link" href="/posts.html">Lifestyle</a></li>
+              </ul>
+            </div>
+            <div class="flex flex-col gap-4">
+              <h3 class="font-medium text-foreground">Quick Links</h3>
+              <ul class="flex flex-col gap-2 text-sm">
+                <li><a class="footer-link" href="/about.html">About</a></li>
+                <li><a class="footer-link" href="/contact.html">Contact</a></li>
+                <li><a class="footer-link" href="/privacy.html">Privacy</a></li>
+                <li><a class="footer-link" href="/terms.html">Terms</a></li>
+              </ul>
+            </div>
+            <div class="flex flex-col gap-4">
+              <h3 class="font-medium text-foreground">Connect</h3>
+              <div class="flex gap-4">
+                <a class="footer-link" href="#" aria-label="Follow us on Facebook">Facebook</a>
+                <a class="footer-link" href="#" aria-label="Follow us on Twitter">Twitter</a>
+                <a class="footer-link" href="#" aria-label="Follow us on Instagram">Instagram</a>
+              </div>
+            </div>
+          </div>
+          <div class="border-t mt-8 pt-8 text-center">
+            <p class="text-sm text-muted-foreground">© 2026 Nexus Blog. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+  </body>
+</html>
