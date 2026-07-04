@@ -6,5 +6,5 @@
   "websiteUrl": "https://klar-templates.github.io/klar-blog/",
   "author": "Klar",
   "category": "blog",
-  "description": "Launch a professional content platform with advanced filtering, masonry layouts, and full SEO optimization. Brutalist-minimalist design with 66+ components—go live in hours, not weeks."
+  "description": "Pulse is a doctor-appointment booking platform built with React and the Klar visual CMS. Patients browse verified specialists, pick a time slot, and book in seconds — with server-side double-booking prevention, automated email/SMS reminders, and a built-in admin panel."
 }
