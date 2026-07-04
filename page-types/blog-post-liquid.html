@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="en" class="light"><head>
+<!DOCTYPE html>
+<html lang="en" class="light">
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
@@ -30,7 +32,7 @@
     <template data-for="related-articles" data-query="list('blog-post', {order: 'updated_at:desc', limit: 10})">
       {% assign matched = 0 %}
       {% for post in items %}
-      {% if matched &lt; 3
+      {% if matched < 3
           and post.filePath != page.filePath
           and post.content.category == page.content.category %}
       <article class="blog-card">
@@ -381,7 +383,7 @@
       <header class="mb-8">
         <div class="flex items-center gap-3 mb-4">
           <span class="badge badge-secondary field-category">Business</span>
-          <time class="blog-meta field-createdAt" datetime="2026-06-13">June 13, 2026</time>
+          <time class="blog-meta field-createdAt" datetime="2026-05-05">June 13, 2026</time>
         </div>
         <h1 class="page-title mb-6 field-title">En blogg för alla de som älskar att skriva och skratta nu 2</h1>
         <div class="flex items-center justify-between mb-8">
@@ -856,5 +858,5 @@
         </div>
       </footer>
     </div>
-  
-</body></html>
+  </body>
+</html>
