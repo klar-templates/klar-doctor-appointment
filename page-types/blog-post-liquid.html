@@ -1,13 +1,11 @@
-<!DOCTYPE html>
-<html lang="en" class="light">
-  <head>
+<!DOCTYPE html><html lang="en" class="light"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/klar-doctor-appointment-booking/images/favicon.png">
     <title>Nexus - Personal Blog | Fashion, Technology &amp; Lifestyle</title>
     <meta name="description" content="Explore the latest in fashion trends, technology insights, business strategies, and lifestyle inspiration on Nexus personal blog.">
     <link rel="preload" as="font" type="font/woff2" crossorigin="" href="https://fonts.gstatic.com/s/dmsans/v17/rP2Hp2ywxg089UriCZOIHQ.woff2">
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/klar-doctor-appointment-booking/style.css">
     <script>
       (function() {
         try {
@@ -26,277 +24,12 @@
       })();
     </script>
     <script src="https://editor.klar.website/sdk/content-static.iife.js"></script>
-    <script type="module" src="/script.js"></script>
+    <script type="module" src="/klar-doctor-appointment-booking/script.js"></script>
   </head>
   <body>
-    <template data-for="related-articles" data-query="list('blog-post', {order: 'updated_at:desc', limit: 10})">
-      {% assign matched = 0 %}
-      {% for post in items %}
-      {% if matched < 3
-          and post.filePath != page.filePath
-          and post.content.category == page.content.category %}
-      <article class="blog-card">
-        <a class="block" href="{{post.url}}">
-          <div class="blog-card__media">
-            <img src="{{post.content.image.src}}" alt="" width="387" height="291" loading="lazy">
-          </div>
-          <div class="blog-card__body">
-            <div class="flex items-center gap-2">
-              <!--
-              <span class="blog-meta">{{post.content.category}}</span><span class="text-muted-foreground text-xs"
-                aria-hidden="true">—</span><span class="blog-meta">{{post.content.readTime}}</span>
-              -->
-              <time class="blog-meta" datetime="{{ post.content.createdAt }}">{{ post.content.createdAt | date: '%B %-d, %Y' }}</time>
-            </div>
-            <h4 class="blog-card__title">
-              {{post.content.title}}
-            </h4>
-            <!--
-            <p class="blog-card__excerpt">
-              {{post.content.lead}}
-            </p>
-            -->
-          </div>
-        </a>
-      </article>
-      {% assign matched = matched | plus: 1 %}
-      {% endif %}
-      {% endfor %}
-    </template>
+    
 
-    <template data-for="post" data-query="page()">
-      <header class="mb-8">
-        <div class="flex items-center gap-3 mb-4">
-          <span class="badge badge-secondary field-category">{{page.content.category}}</span>
-          <time class="blog-meta field-createdAt" datetime="2026-05-05">{{ page.content.createdAt | date: '%B %-d, %Y' | localeDate: 'en-US'  }}</time>
-        </div>
-        <h1 class="page-title mb-6 field-title">{{page.content.title}}</h1>
-        <div class="flex items-center justify-between mb-8">
-          <div class="byline">
-            <span class="avatar field-initial">{{page.content.initial}}</span>
-            <div>
-              <p class="font-medium text-foreground field-author">{{page.content.author}}</p>
-              <p class="text-sm text-muted-foreground field-readTime">{{page.content.readTime}}</p>
-            </div>
-          </div>
-          <button class="btn btn-sm">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="18" cy="5" r="3"></circle>
-              <circle cx="6" cy="12" r="3"></circle>
-              <circle cx="18" cy="19" r="3"></circle>
-              <line x1="8.59" x2="15.42" y1="13.51" y2="17.49"></line>
-              <line x1="15.41" x2="8.59" y1="6.51" y2="10.49"></line>
-            </svg>
-            Share
-          </button>
-        </div>
-        <div class="overflow-hidden rounded-lg aspect-photo mb-8">
-          <img class="object-cover w-full h-full field-image" src="{{page.content.image.src}}" alt="{{page.content.image.alt}}" width="800" height="600" fetchpriority="high">
-        </div>
-      </header>
-      <div class="prose field-text" data-article-content="true">
-        {% for block in page.content.text %}
-        {{ block.html | raw }}
-        {% else %}
-        <p>
-          The fashion industry has undergone a seismic shift in the past
-          decade, with fashion blogging emerging as one of the most
-          influential forces reshaping how we discover, consume, and
-          interact with style. What began as personal style diaries has
-          evolved into a billion-dollar industry that directly impacts
-          fashion trends, consumer behavior, and brand strategies
-          worldwide.
-        </p>
-        <p>
-          From the early days of pioneering bloggers like Susanna Lau of
-          Style Bubble and Tavi Gevinson of Style Rookie, to today's
-          Instagram influencers with millions of followers, fashion
-          blogging has democratized fashion commentary and created new
-          pathways to influence that bypass traditional gatekeepers.
-        </p>
-
-        <h2>The Evolution of Fashion Influence</h2>
-        <p>
-          Traditional fashion journalism once held exclusive power over
-          trend-setting and style validation. Magazine editors and
-          fashion critics were the sole arbiters of what was considered
-          fashionable. However, the rise of digital platforms has
-          fundamentally disrupted this hierarchy.
-        </p>
-        <img src="/images/fashion-post-4m_ykv-I.jpg" alt="Fashion blogger creating content" loading="lazy">
-        <p>
-          Today's fashion influencers operate with unprecedented
-          autonomy, building direct relationships with their audiences
-          and creating authentic content that resonates on a personal
-          level. This shift has forced established fashion media to
-          adapt, with many traditional publications now collaborating
-          with digital creators to maintain relevance.
-        </p>
-
-        <h2>The Anatomy of Modern Fashion Influence</h2>
-        <p>
-          Contemporary fashion influencers operate across multiple
-          platforms, each serving different purposes in their overall
-          strategy:
-        </p>
-        <ul>
-          <li>
-            <strong>Instagram:</strong> Visual storytelling through
-            curated feeds and Stories
-          </li>
-          <li>
-            <strong>TikTok:</strong> Trend creation and viral fashion
-            content
-          </li>
-          <li>
-            <strong>YouTube:</strong> Long-form content including
-            lookbooks and shopping hauls
-          </li>
-          <li>
-            <strong>Blogs:</strong> In-depth fashion analysis and
-            personal narratives
-          </li>
-          <li>
-            <strong>Pinterest:</strong> Style inspiration and trend
-            forecasting
-          </li>
-        </ul>
-        <img src="/images/hero-image-xUp6gwWA.jpg" alt="Multi-platform content creation setup" loading="lazy">
-
-        <h2>The Business of Fashion Blogging</h2>
-        <p>
-          What started as passion projects have transformed into
-          sophisticated business enterprises. Successful fashion
-          influencers now operate as media companies, employing teams
-          for content creation, brand partnerships, and business
-          development.
-        </p>
-        <p>
-          The monetization strategies have diversified significantly:
-        </p>
-        <ul>
-          <li>
-            <strong>Brand Partnerships:</strong> Sponsored content and
-            ambassadorships
-          </li>
-          <li>
-            <strong>Affiliate Marketing:</strong> Commission-based
-            product recommendations
-          </li>
-          <li>
-            <strong>Product Lines:</strong> Private label fashion and
-            beauty collaborations
-          </li>
-          <li>
-            <strong>Digital Products:</strong> Style guides, courses,
-            and exclusive content
-          </li>
-          <li>
-            <strong>Event Hosting:</strong> Fashion shows,
-            meet-and-greets, and brand activations
-          </li>
-        </ul>
-
-        <h2>Impact on Consumer Behavior</h2>
-        <p>
-          Fashion influencers have fundamentally altered how consumers
-          discover and purchase clothing. The traditional seasonal
-          fashion cycle has given way to constant content creation and
-          immediate shopping opportunities through features like
-          Instagram Shopping and "link in bio" tools.
-        </p>
-        <img src="/images/business-post-6IsrfXyD.jpg" alt="Consumer shopping on mobile device" loading="lazy">
-        <p>
-          Research indicates that 72% of Gen Z and millennial consumers
-          have made fashion purchases directly influenced by social
-          media content. This immediate connection between inspiration
-          and purchase has created new challenges and opportunities for
-          both brands and consumers.
-        </p>
-
-        <h2>Challenges in the Influencer Economy</h2>
-        <p>
-          Despite its growth, the fashion influencer industry faces
-          significant challenges:
-        </p>
-        <ul>
-          <li>
-            <strong>Authenticity Concerns:</strong> Balancing genuine
-            recommendations with commercial partnerships
-          </li>
-          <li>
-            <strong>Market Saturation:</strong> Standing out in an
-            increasingly crowded field
-          </li>
-          <li>
-            <strong>Platform Dependencies:</strong> Vulnerability to
-            algorithm changes and platform policies
-          </li>
-          <li>
-            <strong>Sustainability Issues:</strong> Pressure to
-            constantly showcase new products
-          </li>
-          <li>
-            <strong>Mental Health:</strong> The psychological impact of
-            constant public scrutiny
-          </li>
-        </ul>
-
-        <h2>The Sustainability Movement</h2>
-        <p>
-          A growing number of fashion influencers are pivoting toward
-          sustainable fashion advocacy, using their platforms to promote
-          conscious consumption, vintage shopping, and ethical brands.
-          This shift reflects broader consumer awareness about fashion's
-          environmental impact.
-        </p>
-        <p>
-          Influencers like Venetia La Manna and Aditi Mayer have built
-          substantial followings by focusing on sustainable fashion
-          education, proving that conscious content can be both engaging
-          and commercially successful.
-        </p>
-
-        <h2>Technology and the Future of Fashion Influence</h2>
-        <p>
-          Emerging technologies are reshaping the landscape once again.
-          Virtual reality shopping experiences, AI-powered style
-          recommendations, and augmented reality try-on features are
-          creating new possibilities for fashion content creation and
-          consumer engagement.
-        </p>
-        <p>
-          The rise of virtual influencers like Lil Miquela and the
-          integration of NFTs in fashion are pushing the boundaries of
-          what constitutes fashion influence in the digital age.
-        </p>
-
-        <h2>Looking Ahead: The Next Chapter</h2>
-        <p>
-          As we look toward the future, fashion blogging and influence
-          will likely become even more integrated with e-commerce,
-          sustainability initiatives, and immersive technologies. The
-          most successful influencers will be those who can adapt to
-          changing platforms while maintaining authentic connections
-          with their audiences.
-        </p>
-        <p>
-          The democratization of fashion influence has permanently
-          changed the industry landscape, creating opportunities for
-          diverse voices and perspectives that were previously
-          marginalized. This evolution continues to challenge
-          traditional fashion hierarchies and create new pathways for
-          creative expression and commercial success.
-        </p>
-        <p>
-          Fashion blogging has proven that influence in the digital age
-          is not about gatekeeping access to style, but about fostering
-          communities, inspiring creativity, and making fashion more
-          accessible to everyone.
-        </p>
-        {% endfor %}
-      </div>
-    </template>
+    
 
 
 
@@ -306,11 +39,11 @@
       <header class="site-header" id="header">
         <div class="container">
           <div class="site-header__bar">
-            <a class="brand" href="/index.html">nexus</a>
-            <nav class="nav-desktop items-center gap-8" aria-label="Main navigation"><a class="nav-link" href="/posts.html">ALL POST</a>
-              <a class="nav-link" href="/business.html">BUSINESS</a>
-              <a class="nav-link" href="/technology.html">TECHNOLOGY</a>
-              <a class="nav-link" href="/podcast.html">PODCAST</a>
+            <a class="brand" href="/klar-doctor-appointment-booking/index.html">nexus</a>
+            <nav class="nav-desktop items-center gap-8" aria-label="Main navigation"><a class="nav-link" href="/klar-doctor-appointment-booking/posts.html">ALL POST</a>
+              <a class="nav-link" href="/klar-doctor-appointment-booking/business.html">BUSINESS</a>
+              <a class="nav-link" href="/klar-doctor-appointment-booking/technology.html">TECHNOLOGY</a>
+              <a class="nav-link" href="/klar-doctor-appointment-booking/podcast.html">PODCAST</a>
             </nav>
             <div class="nav-desktop items-center gap-2">
               <!--
@@ -334,7 +67,7 @@
                   <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
                 </svg></a>
               -->
-              <a href="/search.html" class="btn btn-icon" aria-label="Search articles"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <a href="/klar-doctor-appointment-booking/search.html" class="btn btn-icon" aria-label="Search articles"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <circle cx="11" cy="11" r="8"></circle>
                   <path d="m21 21-4.3-4.3"></path>
                 </svg></a>
@@ -365,10 +98,10 @@
           </div>
           <div id="mobile-menu" class="hidden border-t py-4">
             <nav class="flex flex-col gap-4" aria-label="Mobile navigation">
-              <a class="nav-link" href="/posts.html">ALL POST</a>
-              <a class="nav-link" href="/business.html">BUSINESS</a>
-              <a class="nav-link" href="/technology.html">TECHNOLOGY</a>
-              <a class="nav-link" href="/podcast.html">PODCAST</a>
+              <a class="nav-link" href="/klar-doctor-appointment-booking/posts.html">ALL POST</a>
+              <a class="nav-link" href="/klar-doctor-appointment-booking/business.html">BUSINESS</a>
+              <a class="nav-link" href="/klar-doctor-appointment-booking/technology.html">TECHNOLOGY</a>
+              <a class="nav-link" href="/klar-doctor-appointment-booking/podcast.html">PODCAST</a>
             </nav>
           </div>
         </div>
@@ -406,7 +139,7 @@
           </button>
         </div>
         <div class="overflow-hidden rounded-lg aspect-photo mb-8">
-          <img class="object-cover w-full h-full field-image" src="/images/work-lifestyle-Bg_wzXQT.jpg" alt="En blogg för alla de som älskar att skriva och skratta" width="800" height="600" fetchpriority="high">
+          <img class="object-cover w-full h-full field-image" src="/klar-doctor-appointment-booking/images/work-lifestyle-Bg_wzXQT.jpg" alt="En blogg för alla de som älskar att skriva och skratta" width="800" height="600" fetchpriority="high">
         </div>
       </header>
       <div class="prose field-text" data-article-content="true">
@@ -436,7 +169,7 @@
           fashionable. However, the rise of digital platforms has
           fundamentally disrupted this hierarchy.
         </p>
-        <img src="/images/fashion-post-4m_ykv-I.jpg" alt="Fashion blogger creating content" loading="lazy">
+        <img src="/klar-doctor-appointment-booking/images/fashion-post-4m_ykv-I.jpg" alt="Fashion blogger creating content" loading="lazy">
         <p>
           Today's fashion influencers operate with unprecedented
           autonomy, building direct relationships with their audiences
@@ -474,7 +207,7 @@
             forecasting
           </li>
         </ul>
-        <img src="/images/hero-image-xUp6gwWA.jpg" alt="Multi-platform content creation setup" loading="lazy">
+        <img src="/klar-doctor-appointment-booking/images/hero-image-xUp6gwWA.jpg" alt="Multi-platform content creation setup" loading="lazy">
 
         <h2>The Business of Fashion Blogging</h2>
         <p>
@@ -518,7 +251,7 @@
           immediate shopping opportunities through features like
           Instagram Shopping and "link in bio" tools.
         </p>
-        <img src="/images/business-post-6IsrfXyD.jpg" alt="Consumer shopping on mobile device" loading="lazy">
+        <img src="/klar-doctor-appointment-booking/images/business-post-6IsrfXyD.jpg" alt="Consumer shopping on mobile device" loading="lazy">
         <p>
           Research indicates that 72% of Gen Z and millennial consumers
           have made fashion purchases directly influenced by social
@@ -618,9 +351,9 @@
       
       
       <article class="blog-card">
-        <a class="block" href="/blog/blog-post-1.html">
+        <a class="block" href="/klar-doctor-appointment-booking/blog/blog-post-1.html">
           <div class="blog-card__media">
-            <img src="/images/work-lifestyle-Bg_wzXQT.jpg" alt="" width="387" height="291" loading="lazy">
+            <img src="/klar-doctor-appointment-booking/images/work-lifestyle-Bg_wzXQT.jpg" alt="" width="387" height="291" loading="lazy">
           </div>
           <div class="blog-card__body">
             <div class="flex items-center gap-2">
@@ -646,9 +379,9 @@
       
       
       <article class="blog-card">
-        <a class="block" href="/blog/blog-post-2.html">
+        <a class="block" href="/klar-doctor-appointment-booking/blog/blog-post-2.html">
           <div class="blog-card__media">
-            <img src="/images/fashion-lifestyle-tBv1CS6f (1).jpg" alt="" width="387" height="291" loading="lazy">
+            <img src="/klar-doctor-appointment-booking/images/fashion-lifestyle-tBv1CS6f (1).jpg" alt="" width="387" height="291" loading="lazy">
           </div>
           <div class="blog-card__body">
             <div class="flex items-center gap-2">
@@ -674,9 +407,9 @@
       
       
       <article class="blog-card">
-        <a class="block" href="/blog/blog-post-3.html">
+        <a class="block" href="/klar-doctor-appointment-booking/blog/blog-post-3.html">
           <div class="blog-card__media">
-            <img src="/images/fashion-post-4m_ykv-I.jpg" alt="" width="387" height="291" loading="lazy">
+            <img src="/klar-doctor-appointment-booking/images/fashion-post-4m_ykv-I.jpg" alt="" width="387" height="291" loading="lazy">
           </div>
           <div class="blog-card__body">
             <div class="flex items-center gap-2">
@@ -800,23 +533,23 @@
             <div class="flex flex-col gap-4">
               <h3 class="font-medium text-foreground">Categories</h3>
               <ul class="flex flex-col gap-2 text-sm">
-                <li><a class="footer-link" href="/posts.html">Fashion</a></li>
+                <li><a class="footer-link" href="/klar-doctor-appointment-booking/posts.html">Fashion</a></li>
                 <li>
-                  <a class="footer-link" href="/technology.html">Technology</a>
+                  <a class="footer-link" href="/klar-doctor-appointment-booking/technology.html">Technology</a>
                 </li>
                 <li>
-                  <a class="footer-link" href="/business.html">Business</a>
+                  <a class="footer-link" href="/klar-doctor-appointment-booking/business.html">Business</a>
                 </li>
-                <li><a class="footer-link" href="/posts.html">Lifestyle</a></li>
+                <li><a class="footer-link" href="/klar-doctor-appointment-booking/posts.html">Lifestyle</a></li>
               </ul>
             </div>
             <div class="flex flex-col gap-4">
               <h3 class="font-medium text-foreground">Quick Links</h3>
               <ul class="flex flex-col gap-2 text-sm">
-                <li><a class="footer-link" href="/about.html">About</a></li>
-                <li><a class="footer-link" href="/contact.html">Contact</a></li>
-                <li><a class="footer-link" href="/privacy.html">Privacy</a></li>
-                <li><a class="footer-link" href="/terms.html">Terms</a></li>
+                <li><a class="footer-link" href="/klar-doctor-appointment-booking/about.html">About</a></li>
+                <li><a class="footer-link" href="/klar-doctor-appointment-booking/contact.html">Contact</a></li>
+                <li><a class="footer-link" href="/klar-doctor-appointment-booking/privacy.html">Privacy</a></li>
+                <li><a class="footer-link" href="/klar-doctor-appointment-booking/terms.html">Terms</a></li>
               </ul>
             </div>
             <div class="flex flex-col gap-4">
@@ -836,5 +569,5 @@
         </div>
       </footer>
     </div>
-  </body>
-</html>
+  
+</body></html>
